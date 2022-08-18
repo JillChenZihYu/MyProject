@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ReserveRobotModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administers">
+          <Key>
+            <PropertyRef Name="AdministerID" />
+          </Key>
+          <Property Name="AdministerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdministratorID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="Blocks" Type="bit" />
+          <Property Name="Reason" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Administrators">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="64" />
+          <Property Name="Password" Type="varchar" MaxLength="30" />
+          <Property Name="Authorize" Type="bit" />
+        </EntityType>
+        <EntityType Name="FavoriteLists">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="RestaurantID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Gender" Type="bit" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
+          <Property Name="ContactNumber" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reserves">
+          <Key>
+            <PropertyRef Name="ReservationID" />
+          </Key>
+          <Property Name="ReservationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+          <Property Name="RestaurantID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Adult" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Child" Type="char" MaxLength="2" />
+          <Property Name="Note" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Restaurants">
+          <Key>
+            <PropertyRef Name="RestaurantID" />
+          </Key>
+          <Property Name="RestaurantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ContactNumber" Type="char" MaxLength="12" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="OpeningHours" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Administers_Administrators">
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="1" />
+          <End Role="Administers" Type="Self.Administers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrators">
+              <PropertyRef Name="AdministratorID" />
+            </Principal>
+            <Dependent Role="Administers">
+              <PropertyRef Name="AdministratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Administers_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="Administers" Type="Self.Administers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Administers">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoriteLists_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="FavoriteLists" Type="Self.FavoriteLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="FavoriteLists">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoriteLists_Restaurants">
+          <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="1" />
+          <End Role="FavoriteLists" Type="Self.FavoriteLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="RestaurantID" />
+            </Principal>
+            <Dependent Role="FavoriteLists">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reserves_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="Reserves" Type="Self.Reserves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Reserves">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ReserveRobotModelStoreContainer">
+          <EntitySet Name="Administers" EntityType="Self.Administers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Administrators" EntityType="Self.Administrators" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FavoriteLists" EntityType="Self.FavoriteLists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reserves" EntityType="Self.Reserves" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Restaurants" EntityType="Self.Restaurants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Administers_Administrators" Association="Self.FK_Administers_Administrators">
+            <End Role="Administrators" EntitySet="Administrators" />
+            <End Role="Administers" EntitySet="Administers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Administers_Members" Association="Self.FK_Administers_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Administers" EntitySet="Administers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoriteLists_Members" Association="Self.FK_FavoriteLists_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="FavoriteLists" EntitySet="FavoriteLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoriteLists_Restaurants" Association="Self.FK_FavoriteLists_Restaurants">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="FavoriteLists" EntitySet="FavoriteLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reserves_Members" Association="Self.FK_Reserves_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Reserves" EntitySet="Reserves" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ReserveRobotModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administers">
+          <Key>
+            <PropertyRef Name="AdministerID" />
+          </Key>
+          <Property Name="AdministerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="Blocks" Type="Boolean" />
+          <Property Name="Reason" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Administrators" Relationship="Self.FK_Administers_Administrators" FromRole="Administers" ToRole="Administrators" />
+          <NavigationProperty Name="Members" Relationship="Self.FK_Administers_Members" FromRole="Administers" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="Administrators">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Authorize" Type="Boolean" />
+          <NavigationProperty Name="Administers" Relationship="Self.FK_Administers_Administrators" FromRole="Administrators" ToRole="Administers" />
+        </EntityType>
+        <EntityType Name="FavoriteLists">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="RestaurantID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Members" Relationship="Self.FK_FavoriteLists_Members" FromRole="FavoriteLists" ToRole="Members" />
+          <NavigationProperty Name="Restaurants" Relationship="Self.FK_FavoriteLists_Restaurants" FromRole="FavoriteLists" ToRole="Restaurants" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="Boolean" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ContactNumber" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Administers" Relationship="Self.FK_Administers_Members" FromRole="Members" ToRole="Administers" />
+          <NavigationProperty Name="FavoriteLists" Relationship="Self.FK_FavoriteLists_Members" FromRole="Members" ToRole="FavoriteLists" />
+          <NavigationProperty Name="Reserves" Relationship="Self.FK_Reserves_Members" FromRole="Members" ToRole="Reserves" />
+        </EntityType>
+        <EntityType Name="Reserves">
+          <Key>
+            <PropertyRef Name="ReservationID" />
+          </Key>
+          <Property Name="ReservationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <Property Name="RestaurantID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Adult" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Child" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Members" Relationship="Self.FK_Reserves_Members" FromRole="Reserves" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="Restaurants">
+          <Key>
+            <PropertyRef Name="RestaurantID" />
+          </Key>
+          <Property Name="RestaurantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactNumber" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OpeningHours" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FavoriteLists" Relationship="Self.FK_FavoriteLists_Restaurants" FromRole="Restaurants" ToRole="FavoriteLists" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Administers_Administrators">
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="1" />
+          <End Role="Administers" Type="Self.Administers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrators">
+              <PropertyRef Name="AdministratorID" />
+            </Principal>
+            <Dependent Role="Administers">
+              <PropertyRef Name="AdministratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Administers_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="Administers" Type="Self.Administers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Administers">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoriteLists_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="FavoriteLists" Type="Self.FavoriteLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="FavoriteLists">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoriteLists_Restaurants">
+          <End Role="Restaurants" Type="Self.Restaurants" Multiplicity="1" />
+          <End Role="FavoriteLists" Type="Self.FavoriteLists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurants">
+              <PropertyRef Name="RestaurantID" />
+            </Principal>
+            <Dependent Role="FavoriteLists">
+              <PropertyRef Name="RestaurantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reserves_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="Reserves" Type="Self.Reserves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Reserves">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ReserveRobotEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administers" EntityType="Self.Administers" />
+          <EntitySet Name="Administrators" EntityType="Self.Administrators" />
+          <EntitySet Name="FavoriteLists" EntityType="Self.FavoriteLists" />
+          <EntitySet Name="Members" EntityType="Self.Members" />
+          <EntitySet Name="Reserves" EntityType="Self.Reserves" />
+          <EntitySet Name="Restaurants" EntityType="Self.Restaurants" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_Administers_Administrators" Association="Self.FK_Administers_Administrators">
+            <End Role="Administrators" EntitySet="Administrators" />
+            <End Role="Administers" EntitySet="Administers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Administers_Members" Association="Self.FK_Administers_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Administers" EntitySet="Administers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoriteLists_Members" Association="Self.FK_FavoriteLists_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="FavoriteLists" EntitySet="FavoriteLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoriteLists_Restaurants" Association="Self.FK_FavoriteLists_Restaurants">
+            <End Role="Restaurants" EntitySet="Restaurants" />
+            <End Role="FavoriteLists" EntitySet="FavoriteLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reserves_Members" Association="Self.FK_Reserves_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Reserves" EntitySet="Reserves" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ReserveRobotModelStoreContainer" CdmEntityContainer="ReserveRobotEntities">
+          <EntitySetMapping Name="Administers">
+            <EntityTypeMapping TypeName="ReserveRobotModel.Administers">
+              <MappingFragment StoreEntitySet="Administers">
+                <ScalarProperty Name="AdministerID" ColumnName="AdministerID" />
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Blocks" ColumnName="Blocks" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Administrators">
+            <EntityTypeMapping TypeName="ReserveRobotModel.Administrators">
+              <MappingFragment StoreEntitySet="Administrators">
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Authorize" ColumnName="Authorize" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FavoriteLists">
+            <EntityTypeMapping TypeName="ReserveRobotModel.FavoriteLists">
+              <MappingFragment StoreEntitySet="FavoriteLists">
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="ReserveRobotModel.Members">
+              <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reserves">
+            <EntityTypeMapping TypeName="ReserveRobotModel.Reserves">
+              <MappingFragment StoreEntitySet="Reserves">
+                <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Adult" ColumnName="Adult" />
+                <ScalarProperty Name="Child" ColumnName="Child" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Restaurants">
+            <EntityTypeMapping TypeName="ReserveRobotModel.Restaurants">
+              <MappingFragment StoreEntitySet="Restaurants">
+                <ScalarProperty Name="RestaurantID" ColumnName="RestaurantID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="OpeningHours" ColumnName="OpeningHours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ReserveRobotModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

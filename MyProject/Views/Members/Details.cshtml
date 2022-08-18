@@ -1,0 +1,30 @@
+﻿@model MyProject.Models.Members
+
+@{
+    ViewBag.Title = "Details";
+
+}
+
+<div>
+    <div class="card">
+        <div class="card-header">
+            <h3>@Html.DisplayFor(model => model.Name)</h3>
+        </div>
+        <div class="card-body">
+            <h5>生日：@Html.DisplayFor(model => model.DateOfBirth)</h5>
+            <h5>性別：@Html.DisplayFor(model => model.Gender)</h5>
+            <h5>連絡電話：@Html.DisplayFor(model => model.ContactNumber)</h5>
+            <h5>E-mail：@Html.DisplayFor(model => model.Email)</h5>
+        </div>
+        <div class="card-footer">
+            @Html.ActionLink("編輯", "Edit", new { id = Model.MemberID }, new { @class = "btn-primary btn-sm mr-2" })
+        </div>
+    </div>
+
+</div>
+
+
+
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MemberID })
+    </p>*@

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ec42249a477d4d85b67d0ec14652e51d" Name="Diagram1">
+        <EntityTypeShape EntityType="ReserveRobotModel.Administers" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReserveRobotModel.Administrators" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReserveRobotModel.FavoriteLists" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReserveRobotModel.Members" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReserveRobotModel.Reserves" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReserveRobotModel.Restaurants" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ReserveRobotModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="ReserveRobotModel.FK_Administers_Administrators" ManuallyRouted="false" />
+        <AssociationConnector Association="ReserveRobotModel.FK_Administers_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ReserveRobotModel.FK_FavoriteLists_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ReserveRobotModel.FK_FavoriteLists_Restaurants" ManuallyRouted="false" />
+        <AssociationConnector Association="ReserveRobotModel.FK_Reserves_Members" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
