@@ -84,7 +84,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                @*<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>*@
+                @*<input type="submit" value="註冊會員" class="btn btn-success float-right" />*@
             </div>
         </div>
     </div>
@@ -95,6 +96,7 @@
 
 
         $('.btnCreate').click(function (evt) {
+            console.log(evt.target.title);
             $('#exampleModal .modal-body').load("/Members/Create/" + evt.target.title);
         });
         

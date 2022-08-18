@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using MyProject.Models;
 
 namespace MyProject.Controllers
-{//Hello
+{
     public class AdministratorsController : Controller
     {
         private ReserveRobotEntities db = new ReserveRobotEntities();
