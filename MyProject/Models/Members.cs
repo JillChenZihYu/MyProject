@@ -11,7 +11,9 @@ namespace MyProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+
     public partial class Members
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,6 +29,7 @@ namespace MyProject.Models
         public bool Gender { get; set; }
         public System.DateTime DateOfBirth { get; set; }
         public string ContactNumber { get; set; }
+        [CheckAccount]
         public string Email { get; set; }
         public string Password { get; set; }
     
@@ -36,5 +39,23 @@ namespace MyProject.Models
         public virtual ICollection<FavoriteLists> FavoriteLists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reserves> Reserves { get; set; }
+
+        
+        //自訂帳號是否重複的驗證
+        public class CheckAccount : ValidationAttribute
+        {
+            public CheckAccount() 
+            {
+                ErrorMessage = "此帳號已註冊過";
+            }
+            public override bool IsValid(object value)  //IsValid為父類別ValidationAttribute內的method，可回傳true or false，條件滿足回傳ture
+            {
+                ReserveRobotEntities db = new ReserveRobotEntities();
+
+                var account = db.Members.Where(m => m.Email == value.ToString()).FirstOrDefault();
+
+                return (account == null) ? true : false;
+            }
+        }
     }
 }

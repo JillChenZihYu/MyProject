@@ -10,8 +10,10 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>請輸入帳號及密碼</h4>
+<h4>請輸入帳號及密碼</h4>
+    
+<div class="form-horizontal bg-light">
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

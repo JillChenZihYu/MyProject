@@ -40,7 +40,7 @@ namespace MyProject.Controllers
         // GET: Members/Create
         public ActionResult Create()
         {
-            return PartialView();
+            return View();
         }
 
         // POST: Members/Create
@@ -54,10 +54,10 @@ namespace MyProject.Controllers
             {
                 db.Members.Add(members);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
-            return PartialView(members);//設為部分檢視，這樣從modal檢視的時候不會有Layout的頭標尾標
+            return View(); //預設return到Member，但因使用VMMember，所以刪掉
         }
 
         // GET: Members/Edit/5
