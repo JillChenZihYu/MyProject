@@ -1,0 +1,90 @@
+﻿@model MyProject.Models.Reserves
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reserves</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RestaurantID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestaurantID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adult)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Child)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Child)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Members.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Members.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ReservationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

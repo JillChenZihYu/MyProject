@@ -13,10 +13,10 @@ namespace MyProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ReserveRobotEntities : DbContext
+    public partial class ReserveRobotEntities1 : DbContext
     {
-        public ReserveRobotEntities()
-            : base("name=ReserveRobotmdf")
+        public ReserveRobotEntities1()
+            : base("name=ReserveRobotEntities1")
         {
         }
     

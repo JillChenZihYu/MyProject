@@ -39,7 +39,11 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Authorize)
+            @*@Html.DisplayFor(model => model.Authorize)*@
+            <select id="Select1">
+                <option value="True">封鎖</option>
+                <option value="False">解除封鎖</option>
+            </select>
         </dd>
 
     </dl>

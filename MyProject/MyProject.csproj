@@ -142,11 +142,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdministersController.cs" />
     <Compile Include="Controllers\AdministratorsController.cs" />
+    <Compile Include="Controllers\FavoriteListsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeManagerController.cs" />
     <Compile Include="Controllers\LoginCheck.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\ReservesController.cs" />
+    <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,7 +190,6 @@
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>ReserveRobot.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\VMAdministrator.cs" />
     <Compile Include="Models\VMAdminLogin.cs" />
     <Compile Include="Models\VMLogin.cs" />
     <Compile Include="Models\VMMember.cs" />
@@ -299,13 +302,6 @@
       <DependentUpon>ReserveRobot.edmx</DependentUpon>
       <LastGenOutput>ReserveRobot.cs</LastGenOutput>
     </Content>
-    <EntityDeploy Include="Models\ReserveRobot.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ReserveRobot.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ReserveRobot.edmx.diagram">
-      <DependentUpon>ReserveRobot.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -340,6 +336,13 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <EntityDeploy Include="Models\ReserveRobot.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ReserveRobot.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ReserveRobot.edmx.diagram">
+      <DependentUpon>ReserveRobot.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -457,6 +460,26 @@
     <Content Include="Views\Administrators\Details.cshtml" />
     <Content Include="Views\Administrators\Edit.cshtml" />
     <Content Include="Views\Administrators\Index.cshtml" />
+    <Content Include="Views\Restaurants\Create.cshtml" />
+    <Content Include="Views\Restaurants\Delete.cshtml" />
+    <Content Include="Views\Restaurants\Details.cshtml" />
+    <Content Include="Views\Restaurants\Edit.cshtml" />
+    <Content Include="Views\Restaurants\Index.cshtml" />
+    <Content Include="Views\Administers\Create.cshtml" />
+    <Content Include="Views\Administers\Delete.cshtml" />
+    <Content Include="Views\Administers\Details.cshtml" />
+    <Content Include="Views\Administers\Edit.cshtml" />
+    <Content Include="Views\Administers\Index.cshtml" />
+    <Content Include="Views\FavoriteLists\Create.cshtml" />
+    <Content Include="Views\FavoriteLists\Delete.cshtml" />
+    <Content Include="Views\FavoriteLists\Details.cshtml" />
+    <Content Include="Views\FavoriteLists\Edit.cshtml" />
+    <Content Include="Views\FavoriteLists\Index.cshtml" />
+    <Content Include="Views\Reserves\Create.cshtml" />
+    <Content Include="Views\Reserves\Delete.cshtml" />
+    <Content Include="Views\Reserves\Details.cshtml" />
+    <Content Include="Views\Reserves\Edit.cshtml" />
+    <Content Include="Views\Reserves\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LoginCheck\" />

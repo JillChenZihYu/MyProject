@@ -24,7 +24,7 @@ namespace MyProject.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public Nullable<bool> Authorize { get; set; }
+        public bool Authorize { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Administers> Administers { get; set; }

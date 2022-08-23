@@ -12,7 +12,7 @@
           <Property Name="AdministerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AdministratorID" Type="int" Nullable="false" />
           <Property Name="MemberID" Type="int" Nullable="false" />
-          <Property Name="Blocks" Type="bit" />
+          <Property Name="Blocks" Type="bit" Nullable="false" />
           <Property Name="Reason" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Administrators">
@@ -23,7 +23,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="64" />
           <Property Name="Password" Type="varchar" MaxLength="30" />
-          <Property Name="Authorize" Type="bit" />
+          <Property Name="Authorize" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="FavoriteLists">
           <Key>
@@ -52,11 +52,13 @@
           <Property Name="ReservationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MemberID" Type="int" Nullable="false" />
           <Property Name="RestaurantID" Type="int" Nullable="false" />
-          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="Time" Type="time" Precision="7" Nullable="false" />
-          <Property Name="Adult" Type="char" MaxLength="2" Nullable="false" />
-          <Property Name="Child" Type="char" MaxLength="2" />
+          <Property Name="Adult" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Child" Type="varchar" MaxLength="50" />
           <Property Name="Note" Type="nvarchar" MaxLength="255" />
+          <Property Name="BookDate" Type="date" />
+          <Property Name="BookTime" Type="time" Precision="7" />
         </EntityType>
         <EntityType Name="Restaurants">
           <Key>
@@ -179,7 +181,7 @@
           <Property Name="AdministerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AdministratorID" Type="Int32" Nullable="false" />
           <Property Name="MemberID" Type="Int32" Nullable="false" />
-          <Property Name="Blocks" Type="Boolean" />
+          <Property Name="Blocks" Type="Boolean" Nullable="false" />
           <Property Name="Reason" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Administrators" Relationship="Self.FK_Administers_Administrators" FromRole="Administers" ToRole="Administrators" />
           <NavigationProperty Name="Members" Relationship="Self.FK_Administers_Members" FromRole="Administers" ToRole="Members" />
@@ -192,7 +194,7 @@
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Authorize" Type="Boolean" />
+          <Property Name="Authorize" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Administers" Relationship="Self.FK_Administers_Administrators" FromRole="Administrators" ToRole="Administers" />
         </EntityType>
         <EntityType Name="FavoriteLists">
@@ -227,11 +229,13 @@
           <Property Name="ReservationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MemberID" Type="Int32" Nullable="false" />
           <Property Name="RestaurantID" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="Adult" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Child" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Adult" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Child" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BookDate" Type="DateTime" Precision="0" />
+          <Property Name="BookTime" Type="Time" Precision="7" />
           <NavigationProperty Name="Members" Relationship="Self.FK_Reserves_Members" FromRole="Reserves" ToRole="Members" />
         </EntityType>
         <EntityType Name="Restaurants">
@@ -315,7 +319,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ReserveRobotEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ReserveRobotEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Administers" EntityType="Self.Administers" />
           <EntitySet Name="Administrators" EntityType="Self.Administrators" />
           <EntitySet Name="FavoriteLists" EntityType="Self.FavoriteLists" />
@@ -349,7 +353,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ReserveRobotModelStoreContainer" CdmEntityContainer="ReserveRobotEntities">
+        <EntityContainerMapping StorageEntityContainer="ReserveRobotModelStoreContainer" CdmEntityContainer="ReserveRobotEntities1">
           <EntitySetMapping Name="Administers">
             <EntityTypeMapping TypeName="ReserveRobotModel.Administers">
               <MappingFragment StoreEntitySet="Administers">
@@ -405,6 +409,8 @@
                 <ScalarProperty Name="Adult" ColumnName="Adult" />
                 <ScalarProperty Name="Child" ColumnName="Child" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="BookDate" ColumnName="BookDate" />
+                <ScalarProperty Name="BookTime" ColumnName="BookTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -22,6 +22,8 @@ namespace MyProject.Models
         public string Adult { get; set; }
         public string Child { get; set; }
         public string Note { get; set; }
+        public Nullable<System.DateTime> BookDate { get; set; }
+        public Nullable<System.TimeSpan> BookTime { get; set; }
     
         public virtual Members Members { get; set; }
     }

@@ -17,7 +17,7 @@ namespace MyProject.Models
         public int AdministerID { get; set; }
         public int AdministratorID { get; set; }
         public int MemberID { get; set; }
-        public Nullable<bool> Blocks { get; set; }
+        public bool Blocks { get; set; }
         public string Reason { get; set; }
     
         public virtual Administrators Administrators { get; set; }
