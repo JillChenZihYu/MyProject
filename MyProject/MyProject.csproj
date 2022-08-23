@@ -193,6 +193,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ReserveRobot.mdf" />
+    <Content Include="App_Data\ReserveRobot_log.ldf">
+      <DependentUpon>ReserveRobot.mdf</DependentUpon>
+    </Content>
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\EntityFramework.dll" />
@@ -455,7 +459,6 @@
     <Content Include="Views\Administrators\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\LoginCheck\" />
   </ItemGroup>
   <ItemGroup>

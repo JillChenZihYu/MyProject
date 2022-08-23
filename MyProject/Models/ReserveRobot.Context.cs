@@ -16,7 +16,7 @@ namespace MyProject.Models
     public partial class ReserveRobotEntities : DbContext
     {
         public ReserveRobotEntities()
-            : base("name=ReserveRobotEntities")
+            : base("name=ReserveRobotmdf")
         {
         }
     
