@@ -27,15 +27,17 @@
             </div>
         </div>
     </div>
-    <div class="container body-content" id="background">
-        @RenderBody()
-        <hr />
-        
-    </div>
-    <div class="container">
-        <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
-        </footer>
+    <div id="background">
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+
+        </div>
+        <div class="container">
+            <footer>
+                <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
+            </footer>
+        </div>
     </div>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
