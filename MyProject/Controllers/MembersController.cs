@@ -84,14 +84,7 @@ namespace MyProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var temp = db.Members
-                //    .Where(m => m.MemberID == members.MemberID).FirstOrDefault();
-                //temp.Name = members.Name;
-                //temp.Gender=members.Gender;
-                //temp.DateOfBirth=members.DateOfBirth;
-                //temp.ContactNumber=members.ContactNumber;
-                //temp.Email=members.Email;
-                //temp.Password=members.Password;
+                
                 db.Entry(members).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

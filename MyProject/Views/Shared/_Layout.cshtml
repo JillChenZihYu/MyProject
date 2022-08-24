@@ -8,6 +8,7 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
     @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
+    <link href="~/Content/MyStyle.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,14 +27,16 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" id="background">
         @RenderBody()
         <hr />
+        
+    </div>
+    <div class="container">
         <footer>
             <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
         </footer>
     </div>
-
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     @RenderSection("scripts", false)   @*渲染HomeManager裡Login的section，true為必要每個區塊都渲染，false為非必要，有需要再渲染*@

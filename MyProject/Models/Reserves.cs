@@ -11,18 +11,24 @@ namespace MyProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Reserves
     {
         public int ReservationID { get; set; }
         public int MemberID { get; set; }
         public int RestaurantID { get; set; }
+
+        //[DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public System.DateTime Date { get; set; }
         public System.TimeSpan Time { get; set; }
         public string Adult { get; set; }
         public string Child { get; set; }
         public string Note { get; set; }
+        
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public Nullable<System.DateTime> BookDate { get; set; }
+        
         public Nullable<System.TimeSpan> BookTime { get; set; }
     
         public virtual Members Members { get; set; }
