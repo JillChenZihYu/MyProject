@@ -15,12 +15,12 @@ namespace MyProject.Models
     
     public partial class ReserveRobotNewEntities1 : DbContext
     {
-        public ReserveRobotNewEntities1()
-            : base("name=ReserveRobotNewEntities1")
-        {
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+
+        public ReserveRobotNewEntities1( )
+            : base("name=Home") //ReserveRobotNewEntities1
+        {}
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
