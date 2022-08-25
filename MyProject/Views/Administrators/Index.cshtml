@@ -39,8 +39,8 @@
             @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Authorize)
-            
+            @*@Html.DisplayFor(modelItem => item.Authorize)*@
+            @(item.Authorize ? "開放":"關閉")
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.AdministratorID }) |

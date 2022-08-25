@@ -2,9 +2,11 @@
 
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
 <h2>Create</h2>
+
 
 @using (Html.BeginForm()) 
 {
@@ -41,10 +43,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Authorize, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Authorize)
-                    @Html.ValidationMessageFor(model => model.Authorize, "", new { @class = "text-danger" })
-                </div>
+                @Html.RadioButtonFor(model => model.Authorize, "True", new { @checked = "check" })
+                <span style="font-size:12pt">開放</span>
+                @Html.RadioButtonFor(model => model.Authorize, "False")
+                <span style="font-size:12pt">關閉</span>
+                @Html.ValidationMessageFor(model => model.Authorize, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
@@ -59,3 +63,4 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+

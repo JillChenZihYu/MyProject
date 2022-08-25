@@ -12,7 +12,7 @@ namespace MyProject.Controllers
 {
     public class FavoriteListsController : Controller
     {
-        private ReserveRobotEntities1 db = new ReserveRobotEntities1();
+        private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
 
         // GET: FavoriteLists
         public ActionResult Index()

@@ -12,7 +12,7 @@ namespace MyProject.Controllers
 {
     public class AdministersController : Controller
     {
-        private ReserveRobotEntities1 db = new ReserveRobotEntities1();
+        private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
 
         // GET: Administers
         public ActionResult Index()
@@ -21,20 +21,7 @@ namespace MyProject.Controllers
             return View(administers.ToList());
         }
 
-        // GET: Administers/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Administers administers = db.Administers.Find(id);
-            if (administers == null)
-            {
-                return HttpNotFound();
-            }
-            return View(administers);
-        }
+       
 
         // GET: Administers/Create
         public ActionResult Create()

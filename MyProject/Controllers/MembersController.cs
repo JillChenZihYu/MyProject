@@ -14,7 +14,7 @@ namespace MyProject.Controllers
 
     public class MembersController : Controller
     {
-        private ReserveRobotEntities1 db = new ReserveRobotEntities1();
+        private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
 
         // GET: Members
         public ActionResult Index()

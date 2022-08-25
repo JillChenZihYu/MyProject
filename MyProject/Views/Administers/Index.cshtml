@@ -4,13 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>會員管理名單</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新增", "Create",null ,new{@class="btn btn-info "})
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Members.Name)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Blocks)
         </th>
@@ -20,16 +23,18 @@
         <th>
             @Html.DisplayNameFor(model => model.Administrators.Name)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Members.Name)
-        </th>
+        
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Blocks)
+            @Html.DisplayFor(modelItem => item.Members.Name)
+        </td>
+        <td>
+            @(item.Blocks ? "是":"否")
+            @*@Html.DisplayFor(modelItem => item.Blocks)*@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Reason)
@@ -37,9 +42,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Administrators.Name)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Members.Name)
-        </td>
+        
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.AdministerID }) |
             @Html.ActionLink("Details", "Details", new { id=item.AdministerID }) |

@@ -359,3 +359,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+MyProject/App_Data/ReserveRobotNew.mdf
+MyProject/App_Data/ReserveRobotNew_log.ldf

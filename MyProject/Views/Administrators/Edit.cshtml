@@ -2,9 +2,11 @@
 
 @{
     ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
 <h2>Edit</h2>
+
 
 @using (Html.BeginForm())
 {
@@ -44,11 +46,7 @@
             @Html.LabelFor(model => model.Authorize, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @*@Html.EditorFor(model => model.Authorize)*@
-                    <select id="Select1">
-                        <option value="True">封鎖</option>
-                        <option value="False">解除封鎖</option>
-                    </select>
+                    @Html.EditorFor(model => model.Authorize)
                     @Html.ValidationMessageFor(model => model.Authorize, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -65,3 +63,7 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

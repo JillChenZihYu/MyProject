@@ -9,7 +9,7 @@ namespace MyProject.Controllers
 {
     public class HomeController : Controller
     {
-        ReserveRobotEntities1 db = new ReserveRobotEntities1();
+        ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
 
         public ActionResult Index()
         {

@@ -12,7 +12,7 @@ namespace MyProject.Controllers
 {
     public class RestaurantsController : Controller
     {
-        private ReserveRobotEntities1 db = new ReserveRobotEntities1();
+        private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
 
         // GET: Restaurants
         public ActionResult Index()

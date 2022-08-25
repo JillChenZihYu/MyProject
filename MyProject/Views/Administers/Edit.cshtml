@@ -36,10 +36,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Blocks, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Blocks)
-                    @Html.ValidationMessageFor(model => model.Blocks, "", new { @class = "text-danger" })
-                </div>
+                @Html.RadioButtonFor(model => model.Blocks, "True")
+                <span style="font-size:12pt">是</span>
+                @Html.RadioButtonFor(model => model.Blocks, "False")
+                <span style="font-size:12pt">否</span>
+                @Html.ValidationMessageFor(model => model.Blocks, "", new { @class = "text-danger" })
+
             </div>
         </div>
 

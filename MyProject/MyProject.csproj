@@ -197,6 +197,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\ReserveRobot.mdf" />
+    <Content Include="App_Data\ReserveRobotNew.mdf" />
+    <Content Include="App_Data\ReserveRobotNew_log.ldf">
+      <DependentUpon>ReserveRobotNew.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\ReserveRobot_log.ldf">
       <DependentUpon>ReserveRobot.mdf</DependentUpon>
     </Content>
@@ -295,8 +299,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\ReserveRobot.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ReserveRobot.Context.cs</LastGenOutput>
       <DependentUpon>ReserveRobot.edmx</DependentUpon>
+      <LastGenOutput>ReserveRobot.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\ReserveRobot.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -457,11 +461,6 @@
     <Content Include="Views\Members\Delete.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Administrators\Create.cshtml" />
-    <Content Include="Views\Administrators\Delete.cshtml" />
-    <Content Include="Views\Administrators\Details.cshtml" />
-    <Content Include="Views\Administrators\Edit.cshtml" />
-    <Content Include="Views\Administrators\Index.cshtml" />
     <Content Include="Views\Restaurants\Create.cshtml" />
     <Content Include="Views\Restaurants\Delete.cshtml" />
     <Content Include="Views\Restaurants\Details.cshtml" />
@@ -469,7 +468,6 @@
     <Content Include="Views\Restaurants\Index.cshtml" />
     <Content Include="Views\Administers\Create.cshtml" />
     <Content Include="Views\Administers\Delete.cshtml" />
-    <Content Include="Views\Administers\Details.cshtml" />
     <Content Include="Views\Administers\Edit.cshtml" />
     <Content Include="Views\Administers\Index.cshtml" />
     <Content Include="Views\FavoriteLists\Create.cshtml" />
@@ -482,6 +480,11 @@
     <Content Include="Views\Reserves\Details.cshtml" />
     <Content Include="Views\Reserves\Edit.cshtml" />
     <Content Include="Views\Reserves\Index.cshtml" />
+    <Content Include="Views\Administrators\Create.cshtml" />
+    <Content Include="Views\Administrators\Delete.cshtml" />
+    <Content Include="Views\Administrators\Details.cshtml" />
+    <Content Include="Views\Administrators\Edit.cshtml" />
+    <Content Include="Views\Administrators\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LoginCheck\" />

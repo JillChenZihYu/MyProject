@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
 <h2>Details</h2>
@@ -39,11 +40,7 @@
         </dt>
 
         <dd>
-            @*@Html.DisplayFor(model => model.Authorize)*@
-            <select id="Select1">
-                <option value="True">封鎖</option>
-                <option value="False">解除封鎖</option>
-            </select>
+            @Html.DisplayFor(model => model.Authorize)
         </dd>
 
     </dl>

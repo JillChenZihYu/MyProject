@@ -12,12 +12,12 @@ namespace MyProject.Controllers
 {
     public class ReservesController : Controller
     {
-        private ReserveRobotEntities1 db = new ReserveRobotEntities1();
+        private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
 
         // GET: Reserves
         public ActionResult Index()
         {
-            var reserves = db.Reserves.Include(r => r.Members);
+            var reserves = db.Reserves.Include(r => r.Members).Include(r => r.Restaurants);
             return View(reserves.ToList());
         }
 
@@ -40,6 +40,7 @@ namespace MyProject.Controllers
         public ActionResult Create()
         {
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name");
+            ViewBag.RestaurantID = new SelectList(db.Restaurants, "RestaurantID", "Name");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace MyProject.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReservationID,MemberID,RestaurantID,Date,Time,Adult,Child,Note,BookDate,BookTime")] Reserves reserves)
+        public ActionResult Create( Reserves reserves)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +59,7 @@ namespace MyProject.Controllers
             }
 
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", reserves.MemberID);
+            ViewBag.RestaurantID = new SelectList(db.Restaurants, "RestaurantID", "Name", reserves.RestaurantID);
             return View(reserves);
         }
 
@@ -74,6 +76,7 @@ namespace MyProject.Controllers
                 return HttpNotFound();
             }
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", reserves.MemberID);
+            ViewBag.ReservationID = new SelectList(db.Restaurants, "RestaurantID", "Name", reserves.ReservationID);
             return View(reserves);
         }
 
@@ -91,6 +94,7 @@ namespace MyProject.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", reserves.MemberID);
+            ViewBag.ReservationID = new SelectList(db.Restaurants, "RestaurantID", "Name", reserves.ReservationID);
             return View(reserves);
         }
 
