@@ -34,36 +34,31 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        <input id="HiddenAdm" type="hidden" name="Password" value="@Model.Password" readonly />
+        
 
         <div class="form-group">
             @Html.LabelFor(model => model.Authorize, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Authorize)
-                    @Html.ValidationMessageFor(model => model.Authorize, "", new { @class = "text-danger" })
-                </div>
+                @Html.RadioButtonFor(model => model.Authorize, "True")
+                <span style="font-size:12pt">開放</span>
+                @Html.RadioButtonFor(model => model.Authorize, "False")
+                <span style="font-size:12pt">關閉</span>
+                @Html.ValidationMessageFor(model => model.Authorize, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mt-3">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="儲存" class="btn btn-success" />
+                @Html.ActionLink("返回列表", "Index", null, new { @class = "btn btn-secondary " })
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
-@section Scripts {
+@*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@

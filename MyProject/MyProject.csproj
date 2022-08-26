@@ -482,7 +482,6 @@
     <Content Include="Views\Reserves\Index.cshtml" />
     <Content Include="Views\Administrators\Create.cshtml" />
     <Content Include="Views\Administrators\Delete.cshtml" />
-    <Content Include="Views\Administrators\Details.cshtml" />
     <Content Include="Views\Administrators\Edit.cshtml" />
     <Content Include="Views\Administrators\Index.cshtml" />
   </ItemGroup>

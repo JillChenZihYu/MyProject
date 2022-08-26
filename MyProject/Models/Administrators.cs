@@ -11,7 +11,9 @@ namespace MyProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Administrators
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,11 +21,20 @@ namespace MyProject.Models
         {
             this.Administers = new HashSet<Administers>();
         }
-    
+        
+        [DisplayName("管理員編號")]
         public int AdministratorID { get; set; }
+        
+        [DisplayName("姓名")]
         public string Name { get; set; }
+        
+        [DisplayName("帳號")]
         public string Email { get; set; }
+        
+        [DisplayName("密碼")]
         public string Password { get; set; }
+        
+        [DisplayName("權限開放狀態")]
         public bool Authorize { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
-<h2>會員管理列表</h2>
+<h2 class="mt-4">會員管理列表</h2>
 
 <p>
     
@@ -58,7 +58,7 @@
             </td>
             <td>
                 @Html.ActionLink("編輯", "Edit", new { id = item.MemberID }, new { @class = "btn-primary btn-sm mr-2" })
-                
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.MemberID })*@
                 @*@Html.ActionLink("詳細", "Details", new { id = item.MemberID }, new { @class = "btn-secondary btn-sm" })*@
                 @*<button type="button" title="@item.MemberID" class="btn btn-success btn-sm btnDetail" data-toggle="modal" data-target="#exampleModal">
             詳細

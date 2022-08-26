@@ -11,7 +11,9 @@ namespace MyProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Members
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,13 +23,27 @@ namespace MyProject.Models
             this.FavoriteLists = new HashSet<FavoriteLists>();
             this.Reserves = new HashSet<Reserves>();
         }
-    
+        [DisplayName("會員編號")]
         public int MemberID { get; set; }
+        
+        [DisplayName("姓名")]
         public string Name { get; set; }
+        
+        [DisplayName("性別")]
         public bool Gender { get; set; }
+
+        [DisplayName("生日")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public System.DateTime DateOfBirth { get; set; }
+
+        [DisplayName("電話")]
         public string ContactNumber { get; set; }
+        
+        [DisplayName("帳號")]
         public string Email { get; set; }
+        
+        [DisplayName("密碼")]
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
