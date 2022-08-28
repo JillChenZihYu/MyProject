@@ -11,13 +11,23 @@ namespace MyProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Administers
     {
+        [DisplayName("管理編號")]
         public int AdministerID { get; set; }
+
+        
         public int AdministratorID { get; set; }
+
+        
         public int MemberID { get; set; }
+
+        [DisplayName("是否封鎖")]
         public bool Blocks { get; set; }
+
+        [DisplayName("封鎖原因")]
         public string Reason { get; set; }
     
         public virtual Administrators Administrators { get; set; }

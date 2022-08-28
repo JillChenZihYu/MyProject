@@ -13,6 +13,7 @@ namespace MyProject.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
 
     public partial class Administrators
     {
@@ -25,10 +26,11 @@ namespace MyProject.Models
         [DisplayName("管理員編號")]
         public int AdministratorID { get; set; }
         
-        [DisplayName("姓名")]
+        [DisplayName("管理員姓名")]
         public string Name { get; set; }
         
         [DisplayName("帳號")]
+        [CheckAccont(ErrorMessage = "此帳號已註冊過")]
         public string Email { get; set; }
         
         [DisplayName("密碼")]
@@ -39,5 +41,17 @@ namespace MyProject.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Administers> Administers { get; set; }
+
+
+        //自訂驗證規則
+        public class CheckAccont : ValidationAttribute
+        {
+            public override bool IsValid(object value)
+            {
+                ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
+                var Admaccount = db.Administrators.Where(a => a.Email == value.ToString()).FirstOrDefault();
+                return (Admaccount == null) ? true : false;
+            }
+        }
     }
 }

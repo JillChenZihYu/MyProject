@@ -11,6 +11,7 @@ namespace MyProject.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class Restaurants
@@ -21,11 +22,19 @@ namespace MyProject.Models
             this.FavoriteLists = new HashSet<FavoriteLists>();
         }
 
-        
+        [DisplayName("餐廳編號")]
         public int RestaurantID { get; set; }
+
+        [DisplayName("餐廳名稱")]
         public string Name { get; set; }
+
+        [DisplayName("餐廳電話")]
         public string ContactNumber { get; set; }
+
+        [DisplayName("地址")]
         public string Address { get; set; }
+
+        [DisplayName("營業時間")]
         public string OpeningHours { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MyProject.Models;
+using PagedList;
 
 namespace MyProject.Controllers
 {
@@ -17,9 +18,16 @@ namespace MyProject.Controllers
         private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
 
         // GET: Members
-        public ActionResult Index()
+        public ActionResult Index(int page=1) //預設page在第1頁
         {
-            return View(db.Members.ToList());
+            var members=db.Members.ToList();
+
+            int pagesize = 15; //一頁要有幾筆資料
+
+            var pagedList = members.ToPagedList(page, pagesize);
+            
+            
+            return View(pagedList);
         }
 
         // GET: Members/Details/5
@@ -48,8 +56,9 @@ namespace MyProject.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MemberID,Name,Gender,DateOfBirth,ContactNumber,Email,Password")] Members members)
+        public ActionResult Create(Members members)
         {
+                       
             if (ModelState.IsValid)
             {
                 db.Members.Add(members);

@@ -1,12 +1,11 @@
 ﻿body {
 }
 
-/*#background {
-   
-    background-image: url('../photos/foodpics.jpg');
-    
+#background {
+    background-color: #FFF4CF;
+}
+
+/*.navbar {
+    background-color:aquamarine;
 }*/
 
-.navbar{
-
-}

@@ -1,52 +1,69 @@
-﻿@model IEnumerable<MyProject.Models.Administrators>
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@*@model IEnumerable<MyProject.Models.Administrators>*@
+@model IPagedList<MyProject.Models.Administrators>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "管理員名單";
     Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
 <h2 class="mt-4">管理員名單</h2>
 
 <p class="text-right">
-    @Html.ActionLink("新增管理員", "Create", null, new {@class="btn btn-info"})
+    @Html.ActionLink("新增管理員", "Create", null, new { @class = "btn btn-info" })
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AdministratorID)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().AdministratorID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Authorize)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Authorize)
         </th>
         <th>資料管理</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AdministratorID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.Authorize)*@
-            @(item.Authorize ? "開放":"關閉")
-        </td>
-        <td>
-            @Html.ActionLink("編輯", "Edit", new { id = item.AdministratorID }, new { @class = "btn-primary btn-sm mr-2" })
-            @*@Html.ActionLink("Delete", "Delete", new { id=item.AdministratorID })*@
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdministratorID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Authorize)*@
+                @(item.Authorize ? "開放":"關閉")
+            </td>
+            <td>
+                @Html.ActionLink("編輯", "Edit", new { id = item.AdministratorID }, new { @class = "btn-primary btn-sm mr-2" })
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.AdministratorID })*@
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+@section scripts{
+    <script>
+        $('.pagination-container').addClass("d-flex justify-content-center");
+        $('.pagination-container>ul>li').addClass("page-item");
+        $('.pagination-container a').addClass("page-link");
+
+    </script>
+}

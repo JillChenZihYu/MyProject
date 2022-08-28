@@ -1,7 +1,7 @@
 ﻿@model MyProject.Models.Members
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "編輯會員資料";
     Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
@@ -21,7 +21,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <input id="Text1" type="text" value="@Model.Email" class="form-control col-12" readonly />
+            <input id="Text1" type="text" value="@Model.Email" class="form-control col-12"  />@*readonly*@
             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
         </div>
     </div>

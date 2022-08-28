@@ -13,6 +13,7 @@ namespace MyProject.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
 
     public partial class Members
     {
@@ -26,7 +27,7 @@ namespace MyProject.Models
         [DisplayName("會員編號")]
         public int MemberID { get; set; }
         
-        [DisplayName("姓名")]
+        [DisplayName("會員姓名")]
         public string Name { get; set; }
         
         [DisplayName("性別")]
@@ -41,6 +42,7 @@ namespace MyProject.Models
         public string ContactNumber { get; set; }
         
         [DisplayName("帳號")]
+        [CheckAccont(ErrorMessage ="此帳號已註冊過")]
         public string Email { get; set; }
         
         [DisplayName("密碼")]
@@ -52,5 +54,18 @@ namespace MyProject.Models
         public virtual ICollection<FavoriteLists> FavoriteLists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reserves> Reserves { get; set; }
+
+        
+        //自訂驗證規則
+        public class CheckAccont : ValidationAttribute
+        {
+            public override bool IsValid(object value)
+            {
+                ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
+                var Memaccount = db.Members.Where(m => m.Email == value.ToString()).FirstOrDefault();
+                return (Memaccount == null)?true:false;
+            }
+        }
+
     }
 }

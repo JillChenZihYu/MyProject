@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MyProject.Models;
+using PagedList;
 
 namespace MyProject.Controllers
 {
@@ -15,10 +16,17 @@ namespace MyProject.Controllers
         private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
 
         // GET: Administers
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var administers = db.Administers.Include(a => a.Administrators).Include(a => a.Members);
-            return View(administers.ToList());
+
+            var administers = db.Administers.Include(a => a.Administrators).Include(a => a.Members).ToList();
+
+            int pagesize = 15; //一頁要有幾筆資料
+
+            var pagedList = administers.ToPagedList(page, pagesize);
+
+
+            return View(pagedList);
         }
 
        

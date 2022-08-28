@@ -17,7 +17,7 @@ namespace MyProject.Models
     {
 
         public ReserveRobotNewEntities1( )
-            : base("name=ReserveRobotNewEntities1") //ReserveRobotNewEntities1 //Home
+            : base("name=Home") //ReserveRobotNewEntities1 //Home
         {}
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)

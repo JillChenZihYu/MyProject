@@ -33,7 +33,20 @@ namespace MyProject.Controllers
                 return View(vMLogin);
             }
             else
+            { 
                 return RedirectToAction("Index");
+            }
+
+            //didn't work so far
+            //var userBlock = db.Administers.Where(a => a.Blocks == true).FirstOrDefault();
+
+            //if (userBlock != null)
+            //{
+            //    ViewBag.BlockMsg = "此帳號已被封鎖！";
+            //    return View(vMLogin);
+            //}
+            //else
+            //    return RedirectToAction("Index");
         }
 
         public ActionResult Logout()

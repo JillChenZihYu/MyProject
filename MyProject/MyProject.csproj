@@ -56,6 +56,12 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -294,6 +300,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\MyStyle.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -308,6 +315,10 @@
       <LastGenOutput>ReserveRobot.cs</LastGenOutput>
     </Content>
     <Content Include="Photos\foodpics.jpg" />
+    <Content Include="Photos\foodpics1.jpg" />
+    <Content Include="Photos\foodpics2.jpg" />
+    <Content Include="Photos\foodpics3.jpg" />
+    <Content Include="Photos\foodpics4.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -458,16 +469,12 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Members\Delete.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Restaurants\Create.cshtml" />
-    <Content Include="Views\Restaurants\Delete.cshtml" />
-    <Content Include="Views\Restaurants\Details.cshtml" />
     <Content Include="Views\Restaurants\Edit.cshtml" />
     <Content Include="Views\Restaurants\Index.cshtml" />
     <Content Include="Views\Administers\Create.cshtml" />
-    <Content Include="Views\Administers\Delete.cshtml" />
     <Content Include="Views\Administers\Edit.cshtml" />
     <Content Include="Views\Administers\Index.cshtml" />
     <Content Include="Views\FavoriteLists\Create.cshtml" />
@@ -481,9 +488,9 @@
     <Content Include="Views\Reserves\Edit.cshtml" />
     <Content Include="Views\Reserves\Index.cshtml" />
     <Content Include="Views\Administrators\Create.cshtml" />
-    <Content Include="Views\Administrators\Delete.cshtml" />
     <Content Include="Views\Administrators\Edit.cshtml" />
     <Content Include="Views\Administrators\Index.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LoginCheck\" />
