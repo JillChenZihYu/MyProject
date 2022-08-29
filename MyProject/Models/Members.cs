@@ -46,6 +46,7 @@ namespace MyProject.Models
         public string Email { get; set; }
         
         [DisplayName("密碼")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

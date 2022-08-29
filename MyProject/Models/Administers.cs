@@ -12,22 +12,26 @@ namespace MyProject.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
 
     public partial class Administers
     {
         [DisplayName("管理編號")]
+        [Key]
         public int AdministerID { get; set; }
 
-        
+        [Required]
         public int AdministratorID { get; set; }
 
-        
+        [Required]
         public int MemberID { get; set; }
 
         [DisplayName("是否封鎖")]
+        [Required]
         public bool Blocks { get; set; }
 
         [DisplayName("封鎖原因")]
+        [StringLength(255, ErrorMessage = "封鎖原因不得超過255字")]
         public string Reason { get; set; }
     
         public virtual Administrators Administrators { get; set; }

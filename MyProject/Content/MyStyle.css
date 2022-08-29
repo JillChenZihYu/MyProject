@@ -1,11 +1,11 @@
 ﻿body {
 }
 
-#background {
-    background-color: #FFF4CF;
+.background {
+    background-color: #FDEEDC;
 }
 
-/*.navbar {
-    background-color:aquamarine;
-}*/
+.navbar {
+    background-color: #814906 !important;
+}
 
