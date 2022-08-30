@@ -37,6 +37,7 @@ namespace MyProject.Controllers
             }
             else
             {
+                //未啟用授權管理員帳號禁止登入功能
                 var userBlock = db.Administrators.Where(a => a.AdministratorID == user.AdministratorID).FirstOrDefault();
 
                 if (userBlock.Authorize ==false) 
