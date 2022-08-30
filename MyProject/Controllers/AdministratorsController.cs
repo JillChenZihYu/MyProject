@@ -56,6 +56,15 @@ namespace MyProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "AdministratorID,Name,Email,Password,Authorize")] Administrators administrators)
         {
+
+            var account = db.Administrators.Where(m => m.Email == administrators.Email).FirstOrDefault();
+
+            if (account != null)
+            {
+                ViewBag.Error = "此帳號已註冊過";
+                return View();
+            }
+
             if (ModelState.IsValid)
             {
                 db.Administrators.Add(administrators);

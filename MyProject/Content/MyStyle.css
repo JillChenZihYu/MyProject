@@ -2,10 +2,16 @@
 }
 
 .background {
-    background-color: #FDEEDC;
+    background-color: #FFF6EA;
 }
 
 .navbar {
+    background-color: #BE8C63 !important;
+}
+
+
+.buttonColor {
     background-color: #814906 !important;
+    border: #814906 !important;
 }
 

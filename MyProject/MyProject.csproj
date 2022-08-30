@@ -491,6 +491,8 @@
     <Content Include="Views\Administrators\Edit.cshtml" />
     <Content Include="Views\Administrators\Index.cshtml" />
     <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Administers\Delete.cshtml" />
+    <Content Include="Views\Home\RestaurantList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LoginCheck\" />

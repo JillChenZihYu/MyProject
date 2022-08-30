@@ -36,7 +36,15 @@ namespace MyProject.Controllers
                 return View(vMAdminLogin);
             }
             else
-            { 
+            {
+                var userBlock = db.Administrators.Where(a => a.AdministratorID == user.AdministratorID).FirstOrDefault();
+
+                if (userBlock.Authorize ==false) 
+                {
+                    ViewBag.BlockMsg = "此管理員帳號尚未啟用！";
+                    return View(vMAdminLogin);
+                }
+
                 Session["user"] = user;/*Session作為判斷是否為管理員的狀態，可全域使用，生命週期為瀏覽器關掉為止，user為管理員狀態*/
                 return RedirectToAction("Index");
             }

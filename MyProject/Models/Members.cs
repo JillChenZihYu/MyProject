@@ -42,7 +42,7 @@ namespace MyProject.Models
         public string ContactNumber { get; set; }
         
         [DisplayName("帳號")]
-        [CheckAccont(ErrorMessage ="此帳號已註冊過")]
+        //[CheckAccount(ErrorMessage ="此帳號已註冊過")]
         public string Email { get; set; }
         
         [DisplayName("密碼")]
@@ -58,15 +58,19 @@ namespace MyProject.Models
 
         
         //自訂驗證規則
-        public class CheckAccont : ValidationAttribute
-        {
-            public override bool IsValid(object value)
-            {
-                ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
-                var Memaccount = db.Members.Where(m => m.Email == value.ToString()).FirstOrDefault();
-                return (Memaccount == null)?true:false;
-            }
-        }
+        //public class CheckAccount : ValidationAttribute
+        //{
+        //    public override bool IsValid(object value)
+        //    {
+        //        if (value == null)
+        //            value = "abc";
+
+        //        ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
+        //        var Memaccount = db.Members.Where(m => m.Email.Equals(value.ToString())).FirstOrDefault();
+        //        return (Memaccount == null)?true:false;
+        //    }
+        //}
+
 
     }
 }

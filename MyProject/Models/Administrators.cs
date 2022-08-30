@@ -33,7 +33,7 @@ namespace MyProject.Models
         public string Name { get; set; }
         
         [DisplayName("帳號")]
-        [CheckAccont(ErrorMessage = "此帳號已註冊過")]
+        //[CheckAccount(ErrorMessage = "此帳號已註冊過")]
         [StringLength(64, ErrorMessage = "帳號不得超過64字")]
         public string Email { get; set; }
         
@@ -52,15 +52,15 @@ namespace MyProject.Models
 
 
         //自訂驗證規則
-        public class CheckAccont : ValidationAttribute
-        {
-            public override bool IsValid(object value)
-            {
-                ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
-                var Admaccount = db.Administrators.Where(a => a.Email == value.ToString()).FirstOrDefault();
-                return (Admaccount == null) ? true : false;
-            }
-        }
+        //public class CheckAccount : ValidationAttribute
+        //{
+        //    public override bool IsValid(object value)
+        //    {
+        //        ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
+        //        var Admaccount = db.Administrators.Where(a => a.Email == value.ToString()).FirstOrDefault();
+        //        return (Admaccount == null) ? true : false;
+        //    }
+        //}
 
         //public class AuthBlock: ValidationAttribute
         //{
