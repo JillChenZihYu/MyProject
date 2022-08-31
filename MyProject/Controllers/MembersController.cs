@@ -30,6 +30,7 @@ namespace MyProject.Controllers
             return View(pagedList);
         }
 
+
         // GET: Members/Details/5
         public ActionResult Details(int? id)
         {

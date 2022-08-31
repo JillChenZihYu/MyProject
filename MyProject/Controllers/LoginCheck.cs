@@ -20,12 +20,11 @@ namespace MyProject.Controllers
         public override void OnActionExecuting(ActionExecutingContext filterContext)
 
         {
-            HttpContext context = HttpContext.Current;
-            LoginState(context);
+            HttpContext context = HttpContext.Current; //確認目前Session的狀態
+            LoginState(context); 
         }
 
-
-
-
     }
+
+
 }

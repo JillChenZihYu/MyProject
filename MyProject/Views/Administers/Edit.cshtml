@@ -24,6 +24,7 @@
         <div class="col-md-10">
             @*@Html.DropDownList("MemberID", null, htmlAttributes: new { @class = "form-control" })*@
             <input id="Text1" type="text" value="@Model.Members.Name" class="form-control col-12" readonly />
+            <input id="Text1" type="text" value="@Model.Members.MemberID" name="MemberID" class="form-control col-12" readonly hidden/>
             @Html.ValidationMessageFor(model => model.MemberID, "", new { @class = "text-danger" })
         </div>
     </div>

@@ -34,7 +34,7 @@ namespace MyProject.Controllers
             }
             else
             {
-               
+
 
                 //封鎖帳號禁止登入功能
                 var userBlock = db.Administers.Where(a => a.MemberID == user.MemberID).FirstOrDefault();
@@ -45,9 +45,12 @@ namespace MyProject.Controllers
                     return View(vMLogin);
                 }
                 else
-                    return RedirectToAction("Index");
+
+                return RedirectToAction("Index");
             }
         }
+
+        
         public ActionResult Logout()
         {
             return RedirectToAction("Index");

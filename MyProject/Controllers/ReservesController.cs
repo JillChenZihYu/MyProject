@@ -22,6 +22,10 @@ namespace MyProject.Controllers
             return View(reserves.ToList());
         }
 
+        
+        
+
+
         // GET: Reserves/Details/5
         public ActionResult Details(int? id)
         {

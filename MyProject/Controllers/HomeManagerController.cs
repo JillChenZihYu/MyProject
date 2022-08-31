@@ -51,7 +51,7 @@ namespace MyProject.Controllers
             }
         }
 
-        [LoginCheck]  //把LoginCheck的Controller內寫的登入規則放在Index的Action裡，放在這裡只有Index適用
+        [LoginCheck]  //把LoginCheck的Controller內寫的登入規則放在Index的Action裡，放在這裡只有Action適用
         public ActionResult Logout()
         {
             Session["user"] = null; /*null為非會員狀態*/
