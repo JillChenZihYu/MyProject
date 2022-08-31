@@ -479,7 +479,6 @@
     <Content Include="Views\Administers\Index.cshtml" />
     <Content Include="Views\FavoriteLists\Create.cshtml" />
     <Content Include="Views\FavoriteLists\Delete.cshtml" />
-    <Content Include="Views\FavoriteLists\Details.cshtml" />
     <Content Include="Views\FavoriteLists\Edit.cshtml" />
     <Content Include="Views\FavoriteLists\Index.cshtml" />
     <Content Include="Views\Reserves\Create.cshtml" />

@@ -1,39 +1,62 @@
-﻿@model IEnumerable<MyProject.Models.FavoriteLists>
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@*@model IEnumerable<MyProject.Models.FavoriteLists>*@
+@model IPagedList<MyProject.Models.FavoriteLists>
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="mt-4 mb-4">收藏餐廳列表</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<p class="text-right">
+    @Html.ActionLink("新增", "Create", null, new { @class = "btn btn-info" })
 </p>
-<table class="table">
+<table class="table table-striped table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Members.Name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().UID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Restaurants.Name)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Members.Name)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Restaurants.Name)
+        </th>
+        <th>資料管理</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Members.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Restaurants.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Members.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurants.Name)
+            </td>
+            <td>
+                @Html.ActionLink("編輯", "Edit", new { id = item.MemberID }, new { @class = "btn-primary btn-sm mr-2" })
+                @Html.ActionLink("刪除", "Delete", new { id = item.UID }, new { @class = "btn-secondary btn-sm mr-2" })
+            </td>
+        </tr>
+    }
 
 </table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+@section scripts{
+    <script>
+        $('.pagination-container').addClass("d-flex justify-content-center");
+        $('.pagination-container>ul>li').addClass("page-item");
+        $('.pagination-container a').addClass("page-link");
+
+    </script>
+}
+
