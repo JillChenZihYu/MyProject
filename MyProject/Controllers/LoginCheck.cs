@@ -27,4 +27,25 @@ namespace MyProject.Controllers
     }
 
 
+    public class MemberLoginCheck : ActionFilterAttribute
+    {
+        void LoginState(HttpContext context)
+        {
+            
+            if (context.Session["MemberUser"] == null)  
+            {
+                context.Response.Redirect("/Home/Index"); 
+            }
+        }
+
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+
+        {
+            HttpContext context = HttpContext.Current; //確認目前Session的狀態
+            LoginState(context);
+        }
+
+    }
+
+
 }

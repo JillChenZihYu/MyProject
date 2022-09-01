@@ -13,7 +13,7 @@ namespace MyProject.Controllers
 {
     public class RestaurantsController : Controller
     {
-        private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
+        private ReserveRobotNewNewEntities db = new ReserveRobotNewNewEntities();
 
         // GET: Restaurants
         public ActionResult Index(int page = 1) //預設page在第1頁

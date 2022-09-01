@@ -11,11 +11,9 @@ namespace MyProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
+    
     public partial class FavoriteLists
     {
-        [DisplayName("收藏編號")]
         public int UID { get; set; }
         public int MemberID { get; set; }
         public int RestaurantID { get; set; }

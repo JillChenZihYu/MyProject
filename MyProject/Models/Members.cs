@@ -11,10 +11,7 @@ namespace MyProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-
+    
     public partial class Members
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,29 +21,13 @@ namespace MyProject.Models
             this.FavoriteLists = new HashSet<FavoriteLists>();
             this.Reserves = new HashSet<Reserves>();
         }
-        [DisplayName("會員編號")]
+    
         public int MemberID { get; set; }
-        
-        [DisplayName("會員姓名")]
         public string Name { get; set; }
-        
-        [DisplayName("性別")]
         public bool Gender { get; set; }
-
-        [DisplayName("生日")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public System.DateTime DateOfBirth { get; set; }
-
-        [DisplayName("電話")]
         public string ContactNumber { get; set; }
-        
-        [DisplayName("帳號")]
-        //[CheckAccount(ErrorMessage ="此帳號已註冊過")]
         public string Email { get; set; }
-        
-        [DisplayName("密碼")]
-        [DataType(DataType.Password)]
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -55,22 +36,5 @@ namespace MyProject.Models
         public virtual ICollection<FavoriteLists> FavoriteLists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reserves> Reserves { get; set; }
-
-        
-        //自訂驗證規則
-        //public class CheckAccount : ValidationAttribute
-        //{
-        //    public override bool IsValid(object value)
-        //    {
-        //        if (value == null)
-        //            value = "abc";
-
-        //        ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
-        //        var Memaccount = db.Members.Where(m => m.Email.Equals(value.ToString())).FirstOrDefault();
-        //        return (Memaccount == null)?true:false;
-        //    }
-        //}
-
-
     }
 }

@@ -13,7 +13,7 @@ namespace MyProject.Controllers
 {
     public class AdministersController : Controller
     {
-        private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
+        private ReserveRobotNewNewEntities db = new ReserveRobotNewNewEntities();
 
         // GET: Administers
         public ActionResult Index(int page = 1)

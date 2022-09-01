@@ -13,7 +13,7 @@ namespace MyProject.Controllers
 {
     public class AdministratorsController : Controller
     {
-        private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
+        private ReserveRobotNewNewEntities db = new ReserveRobotNewNewEntities();
 
         // GET: Administrators
         public ActionResult Index(int page = 1) //預設page在第1頁

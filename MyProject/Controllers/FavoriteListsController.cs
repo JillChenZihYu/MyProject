@@ -13,7 +13,7 @@ namespace MyProject.Controllers
 {
     public class FavoriteListsController : Controller
     {
-        private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
+        private ReserveRobotNewNewEntities db = new ReserveRobotNewNewEntities();
 
         // GET: FavoriteLists
         public ActionResult Index(int page = 1)//預設page在第1頁

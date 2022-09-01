@@ -11,42 +11,25 @@ namespace MyProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class Restaurants
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Restaurants()
         {
             this.FavoriteLists = new HashSet<FavoriteLists>();
+            this.Reserves = new HashSet<Reserves>();
         }
-        
-        [DisplayName("餐廳編號")]
-        [Key]
+    
         public int RestaurantID { get; set; }
-
-        [DisplayName("餐廳名稱")]
-        [Required(ErrorMessage = "請填寫餐廳名稱")]
-        [StringLength(30, ErrorMessage = "餐廳名稱不得超過30字")]
         public string Name { get; set; }
-
-        [DisplayName("餐廳電話")]
-        [StringLength(12, ErrorMessage = "電話不得超過12字")]
         public string ContactNumber { get; set; }
-
-        [DisplayName("地址")]
-        [Required(ErrorMessage = "請填寫地址")]
-        [StringLength(100, ErrorMessage = "地址不得超過100字")]
         public string Address { get; set; }
-
-        [DisplayName("營業時間")]
-        [StringLength(100, ErrorMessage = "營業時間不得超過100字")]
         public string OpeningHours { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FavoriteLists> FavoriteLists { get; set; }
-        public virtual Reserves Reserves { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reserves> Reserves { get; set; }
     }
 }

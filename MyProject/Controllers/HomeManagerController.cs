@@ -10,7 +10,7 @@ namespace MyProject.Controllers
    
     public class HomeManagerController : Controller
     {
-        ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
+        ReserveRobotNewNewEntities db = new ReserveRobotNewNewEntities();
 
         // GET: HomeManager
         [LoginCheck]  //把LoginCheck的Controller內寫的登入規則放在Index的Action裡，放在這裡只有Index適用

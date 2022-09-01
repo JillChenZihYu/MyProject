@@ -13,7 +13,7 @@ namespace MyProject.Controllers
 {
     public class ReservesController : Controller
     {
-        private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
+        private ReserveRobotNewNewEntities db = new ReserveRobotNewNewEntities();
 
         // GET: Reserves
         public ActionResult Index()
@@ -60,7 +60,7 @@ namespace MyProject.Controllers
             {
                 db.Reserves.Add(reserves);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("RestaurantList","Home");
             }
 
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", reserves.MemberID);

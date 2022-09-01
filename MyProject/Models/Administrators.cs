@@ -11,10 +11,7 @@ namespace MyProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-
+    
     public partial class Administrators
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,56 +19,14 @@ namespace MyProject.Models
         {
             this.Administers = new HashSet<Administers>();
         }
-        
-        [DisplayName("管理員編號")]
-        [Key]
+    
         public int AdministratorID { get; set; }
-        
-        [DisplayName("管理員姓名")]
-        [Required(ErrorMessage = "請填寫姓名")]
-        [StringLength(30, ErrorMessage = "姓名不得超過30字")]
         public string Name { get; set; }
-        
-        [DisplayName("帳號")]
-        //[CheckAccount(ErrorMessage = "此帳號已註冊過")]
-        [StringLength(64, ErrorMessage = "帳號不得超過64字")]
         public string Email { get; set; }
-        
-        [DisplayName("密碼")]
-        [StringLength(30, ErrorMessage = "密碼不得超過30字")]
-        [DataType(DataType.Password)]
         public string Password { get; set; }
-        
-        [DisplayName("權限開放狀態")]
-        [Required(ErrorMessage = "請選擇權限開放狀態")]
-        //[AuthBlock]
         public bool Authorize { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Administers> Administers { get; set; }
-
-
-        //自訂驗證規則
-        //public class CheckAccount : ValidationAttribute
-        //{
-        //    public override bool IsValid(object value)
-        //    {
-        //        ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
-        //        var Admaccount = db.Administrators.Where(a => a.Email == value.ToString()).FirstOrDefault();
-        //        return (Admaccount == null) ? true : false;
-        //    }
-        //}
-
-        //public class AuthBlock: ValidationAttribute
-        //{
-        //    public override bool IsValid(object value)
-        //    {
-        //        ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
-        //        var AdmAuth = db.Administrators.Where(a => a.Authorize == true).FirstOrDefault();
-        //        return (AdmAuth == null) ? true : false;
-        //    }
-        //}
-
-
     }
 }

@@ -15,7 +15,7 @@ namespace MyProject.Controllers
 
     public class MembersController : Controller
     {
-        private ReserveRobotNewEntities1 db = new ReserveRobotNewEntities1();
+        private ReserveRobotNewNewEntities db = new ReserveRobotNewNewEntities();
 
         // GET: Members
         public ActionResult Index(int page=1) //預設page在第1頁
@@ -147,5 +147,8 @@ namespace MyProject.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+
     }
 }

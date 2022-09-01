@@ -51,7 +51,8 @@
             @Html.DisplayFor(modelItem => item.RestaurantID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Date)
+            @*@Html.DisplayFor(modelItem => item.Date)*@
+            @DateTime.Parse(item.Date.ToString()).ToShortDateString()
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Time)

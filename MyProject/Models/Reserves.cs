@@ -11,49 +11,20 @@ namespace MyProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public partial class Reserves
     {
-        [Key]
-        [DisplayName("訂單編號")]
         public int ReservationID { get; set; }
-
-        [DisplayName("會員編號")]
         public int MemberID { get; set; }
-
-        [DisplayName("餐廳編號")]
         public int RestaurantID { get; set; }
-
-        [DisplayName("用餐日期")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "用餐日期為必填")]
         public System.DateTime Date { get; set; }
 
-        [DisplayName("用餐時間")]
-        [Required(ErrorMessage = "用餐時間為必填")]
         public System.TimeSpan Time { get; set; }
-
-        [DisplayName("成人人數")]
-        [StringLength(50, ErrorMessage = "不得超過50字")]
-        [Required(ErrorMessage = "請填寫成人人數")]
         public string Adult { get; set; }
-
-        [DisplayName("孩童人數")]
-        [StringLength(50, ErrorMessage = "不得超過50字")]
         public string Child { get; set; }
-
-        [DisplayName("備註")]
-        [StringLength(255, ErrorMessage = "備註不得超過255字")]
         public string Note { get; set; }
-
-        [DisplayName("預訂日期")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> BookDate { get; set; }
-
-        [DisplayName("預訂時間")]
         public Nullable<System.TimeSpan> BookTime { get; set; }
     
         public virtual Members Members { get; set; }

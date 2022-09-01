@@ -161,40 +161,40 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Administers.cs">
-      <DependentUpon>ReserveRobot.tt</DependentUpon>
+      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Administrators.cs">
-      <DependentUpon>ReserveRobot.tt</DependentUpon>
+      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FavoriteLists.cs">
-      <DependentUpon>ReserveRobot.tt</DependentUpon>
+      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Members.cs">
-      <DependentUpon>ReserveRobot.tt</DependentUpon>
+      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ReserveRobot.Context.cs">
+    <Compile Include="Models\ReserveRobotNewNew.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReserveRobot.Context.tt</DependentUpon>
+      <DependentUpon>ReserveRobotNewNew.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ReserveRobot.cs">
+    <Compile Include="Models\ReserveRobotNewNew.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReserveRobot.tt</DependentUpon>
+      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ReserveRobot.Designer.cs">
+    <Compile Include="Models\ReserveRobotNewNew.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReserveRobot.edmx</DependentUpon>
+      <DependentUpon>ReserveRobotNewNew.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Reserves.cs">
-      <DependentUpon>ReserveRobot.tt</DependentUpon>
+      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Restaurants.cs">
-      <DependentUpon>ReserveRobot.tt</DependentUpon>
+      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>ReserveRobot.tt</DependentUpon>
+      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VMAdminLogin.cs" />
     <Compile Include="Models\VMLogin.cs" />
@@ -304,15 +304,15 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ReserveRobot.Context.tt">
+    <Content Include="Models\ReserveRobotNewNew.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ReserveRobot.edmx</DependentUpon>
-      <LastGenOutput>ReserveRobot.Context.cs</LastGenOutput>
+      <LastGenOutput>ReserveRobotNewNew.Context.cs</LastGenOutput>
+      <DependentUpon>ReserveRobotNewNew.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\ReserveRobot.tt">
+    <Content Include="Models\ReserveRobotNewNew.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ReserveRobot.edmx</DependentUpon>
-      <LastGenOutput>ReserveRobot.cs</LastGenOutput>
+      <DependentUpon>ReserveRobotNewNew.edmx</DependentUpon>
+      <LastGenOutput>ReserveRobotNewNew.cs</LastGenOutput>
     </Content>
     <Content Include="Photos\foodpics.jpg" />
     <Content Include="Photos\foodpics1.jpg" />
@@ -353,12 +353,12 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
-    <EntityDeploy Include="Models\ReserveRobot.edmx">
+    <EntityDeploy Include="Models\ReserveRobotNewNew.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ReserveRobot.Designer.cs</LastGenOutput>
+      <LastGenOutput>ReserveRobotNewNew.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ReserveRobot.edmx.diagram">
-      <DependentUpon>ReserveRobot.edmx</DependentUpon>
+    <Content Include="Models\ReserveRobotNewNew.edmx.diagram">
+      <DependentUpon>ReserveRobotNewNew.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -492,6 +492,9 @@
     <Content Include="Views\Members\Delete.cshtml" />
     <Content Include="Views\Administers\Delete.cshtml" />
     <Content Include="Views\Home\RestaurantList.cshtml" />
+    <Content Include="Views\Shared\_LayoutMember.cshtml" />
+    <Content Include="Views\Home\MemberIndex.cshtml" />
+    <Content Include="Views\Home\ReservationList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LoginCheck\" />
