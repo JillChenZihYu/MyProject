@@ -40,7 +40,8 @@ namespace MyProject.Controllers
                 var userBlock = db.Administers.Where(a => a.MemberID == user.MemberID).FirstOrDefault();
             if (userBlock == null)
                 {
-                    return RedirectToAction("MemberIndex");
+                    Session["MemberUser"] = user;/*Session作為判斷是否為會員的狀態，可全域使用，生命週期為瀏覽器關掉為止，user為會員狀態*/
+                    return RedirectToAction("Index", "HomeMember");
 
                 }
                 if (userBlock.Blocks) //()內已是true，所以不需要再寫==true
@@ -49,13 +50,13 @@ namespace MyProject.Controllers
                     return View(vMLogin);
                 }
                 else
-                    Session["MemberUser"] = user;/*Session作為判斷是否為會員的狀態，可全域使用，生命週期為瀏覽器關掉為止，user為會員狀態*/
+                    Session["MemberUser"] = user;
              
-                return RedirectToAction("MemberIndex");
+                return RedirectToAction("Index","HomeMember");
             }
         }
 
-        
+
         [MemberLoginCheck]
         public ActionResult Logout()
         {
@@ -64,29 +65,10 @@ namespace MyProject.Controllers
         }
 
 
-        [MemberLoginCheck]
-        public ActionResult RestaurantList()
-        {
-            var restaurants = db.Restaurants.ToList();
 
-            return View(restaurants);
-        }
 
-        [MemberLoginCheck]
-        public ActionResult MemberIndex()
-        {
-            return View();
-        }
 
-        [MemberLoginCheck]
-        public ActionResult ReservationList()
-        {
 
-            Members MemberUser = (Members)Session["MemberUser"];
-            //var reserves = db.Reserves.ToList();
-            var MemResList = db.Reserves.Where(a => a.MemberID == MemberUser.MemberID).ToList();
-            return View(MemResList);
-        }
 
     }
 }

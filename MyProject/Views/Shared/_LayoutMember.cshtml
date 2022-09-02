@@ -14,15 +14,16 @@
 <body class="background">
     <div class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            @Html.ActionLink("Reservation", "MemberIndex", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("會員首頁", "Index", "HomeMember", new { area = "" }, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#MynavbarMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="MynavbarMenu">
                 <div class="navbar-nav">
-                    @Html.ActionLink("首頁", "MemberIndex", "Home", new { area = "" }, new { @class = "nav-link bi bi-house-fill mr-2" })
+                    @Html.ActionLink("首頁", "Index", "HomeMember", new { area = "" }, new { @class = "nav-link bi bi-house-fill mr-2" })
                     @Html.ActionLink("會員登出", "Logout", "Home", new { area = "" }, new { @class = "nav-link bi bi-person-dash-fill mr-2" })
-                    @Html.ActionLink("訂位紀錄", "ReservationList", "Home", new { area = "" }, new { @class = "nav-link bi bi-clipboard2-fill mr-2" })
+                    @Html.ActionLink("開始訂餐", "Create", "HomeMember", new { area = "" }, new { @class = "nav-link bi bi-clipboard2 mr-2" })
+                    @Html.ActionLink("訂位紀錄", "ReservationList", "HomeMember", new { area = "" }, new { @class = "nav-link bi bi-clipboard2-fill mr-2" })
                     @Html.ActionLink("管理員登入", "Login", "HomeManager", new { area = "" }, new { @class = "nav-link bi bi-wrench-adjustable mr-2" })
                 </div>
             </div>

@@ -60,7 +60,7 @@ namespace MyProject.Controllers
             {
                 db.Reserves.Add(reserves);
                 db.SaveChanges();
-                return RedirectToAction("RestaurantList","Home");
+                return RedirectToAction("RestaurantList","HomeMember");
             }
 
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", reserves.MemberID);

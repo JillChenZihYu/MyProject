@@ -153,6 +153,7 @@
     <Compile Include="Controllers\FavoriteListsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeManagerController.cs" />
+    <Compile Include="Controllers\HomeMemberController.cs" />
     <Compile Include="Controllers\LoginCheck.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\ReservesController.cs" />
@@ -491,10 +492,11 @@
     <Content Include="Views\Administrators\Index.cshtml" />
     <Content Include="Views\Members\Delete.cshtml" />
     <Content Include="Views\Administers\Delete.cshtml" />
-    <Content Include="Views\Home\RestaurantList.cshtml" />
+    <Content Include="Views\HomeMember\RestaurantList.cshtml" />
     <Content Include="Views\Shared\_LayoutMember.cshtml" />
-    <Content Include="Views\Home\MemberIndex.cshtml" />
-    <Content Include="Views\Home\ReservationList.cshtml" />
+    <Content Include="Views\HomeMember\Index.cshtml" />
+    <Content Include="Views\HomeMember\ReservationList.cshtml" />
+    <Content Include="Views\HomeMember\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LoginCheck\" />
