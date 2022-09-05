@@ -24,7 +24,7 @@ namespace MyProject.Controllers
         [HttpPost]
         public ActionResult Login(VMLogin vMLogin)
         {
-            //Select * from Administers where Email=@Email and password=@password
+            //Select * from Members where Email=@Email and password=@password
             var user = db.Members.Where(m => m.Email == vMLogin.Email && m.Password == vMLogin.Password).FirstOrDefault();
 
             if (user == null)
