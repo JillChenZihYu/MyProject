@@ -29,7 +29,21 @@ namespace MyProject.Controllers
             return View(pagedList);
         }
 
-       
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Administers administers = db.Administers.Find(id);
+            if (administers == null)
+            {
+                return HttpNotFound();
+            }
+            return View(administers);
+        }
+
+
 
         // GET: Administers/Create
         public ActionResult Create()

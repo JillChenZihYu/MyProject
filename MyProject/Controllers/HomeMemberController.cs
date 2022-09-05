@@ -48,7 +48,8 @@ namespace MyProject.Controllers
         {
             Members MemberUser = (Members)Session["MemberUser"];
             
-            ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", MemberUser.MemberID);
+            ViewBag.MemberID = MemberUser.MemberID;
+            ViewBag.Name= MemberUser.Name;
             ViewBag.RestaurantID = new SelectList(db.Restaurants, "RestaurantID", "Name");
             return View();
         }

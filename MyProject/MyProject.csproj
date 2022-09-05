@@ -497,6 +497,7 @@
     <Content Include="Views\HomeMember\Index.cshtml" />
     <Content Include="Views\HomeMember\ReservationList.cshtml" />
     <Content Include="Views\HomeMember\Create.cshtml" />
+    <Content Include="Views\Administers\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LoginCheck\" />
