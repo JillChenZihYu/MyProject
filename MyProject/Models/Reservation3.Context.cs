@@ -16,7 +16,7 @@ namespace MyProject.Models
     public partial class ReservationEntities : DbContext
     {
         public ReservationEntities()
-            : base("name=ReservationEntities")
+            : base("name=ReservationEntities") //ReservationEntities //Home
         {
         }
     
