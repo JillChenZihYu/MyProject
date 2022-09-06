@@ -17,7 +17,6 @@ namespace MyProject.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Restaurants()
         {
-            this.FavoriteLists = new HashSet<FavoriteLists>();
             this.Reserves = new HashSet<Reserves>();
         }
     
@@ -27,8 +26,6 @@ namespace MyProject.Models
         public string Address { get; set; }
         public string OpeningHours { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FavoriteLists> FavoriteLists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reserves> Reserves { get; set; }
     }

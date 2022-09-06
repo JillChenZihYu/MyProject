@@ -14,9 +14,6 @@
             @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Time)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Restaurants.Name)
         </th>
         <th>
@@ -28,12 +25,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Note)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.BookDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BookTime)
-        </th>*@
+
         <th>
             @Html.DisplayNameFor(model => model.Members.Name)
         </th>
@@ -45,10 +37,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
+            @*@DateTime.Parse(item.Date.ToString()).ToShortDateString()*@
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Time)
-        </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.Restaurants.Name)
         </td>
@@ -61,12 +52,6 @@
         <td>
             @Html.DisplayFor(modelItem => item.Note)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.BookDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookTime)
-        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Members.Name)
         </td>
@@ -74,7 +59,7 @@
         <td>
             @Html.ActionLink("編輯", "Edit", new { id = item.ReservationID }, new { @class = "btn-primary btn-sm mr-2" })
             @*@Html.ActionLink("Details", "Details", new { id = item.ReservationID }) |*@
-            @Html.ActionLink("編輯", "Edit", new { id = item.ReservationID }, new { @class = "btn-light btn-sm mr-2" })
+            @Html.ActionLink("刪除", "Delete", new { id = item.ReservationID }, new { @class = "btn-light btn-sm mr-2" })
         </td>
     </tr>
 }

@@ -11,9 +11,11 @@ using PagedList;
 
 namespace MyProject.Controllers
 {
+    [LoginCheck]
+
     public class AdministratorsController : Controller
     {
-        private ReserveRobotNewNewEntities db = new ReserveRobotNewNewEntities();
+        private ReservationEntities db = new ReservationEntities();
 
         // GET: Administrators
         public ActionResult Index(int page = 1) //預設page在第1頁

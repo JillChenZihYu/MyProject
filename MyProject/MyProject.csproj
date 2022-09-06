@@ -150,7 +150,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdministersController.cs" />
     <Compile Include="Controllers\AdministratorsController.cs" />
-    <Compile Include="Controllers\FavoriteListsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeManagerController.cs" />
     <Compile Include="Controllers\HomeMemberController.cs" />
@@ -162,40 +161,37 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Administers.cs">
-      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
+      <DependentUpon>Reservation3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Administrators.cs">
-      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\FavoriteLists.cs">
-      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
+      <DependentUpon>Reservation3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Members.cs">
-      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
+      <DependentUpon>Reservation3.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ReserveRobotNewNew.Context.cs">
+    <Compile Include="Models\Reservation3.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReserveRobotNewNew.Context.tt</DependentUpon>
+      <DependentUpon>Reservation3.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ReserveRobotNewNew.cs">
+    <Compile Include="Models\Reservation3.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
+      <DependentUpon>Reservation3.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ReserveRobotNewNew.Designer.cs">
+    <Compile Include="Models\Reservation3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReserveRobotNewNew.edmx</DependentUpon>
+      <DependentUpon>Reservation3.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Reserves.cs">
-      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
+      <DependentUpon>Reservation3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Restaurants.cs">
-      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
+      <DependentUpon>Reservation3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>ReserveRobotNewNew.tt</DependentUpon>
+      <DependentUpon>Reservation3.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VMAdminLogin.cs" />
     <Compile Include="Models\VMLogin.cs" />
@@ -305,15 +301,15 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ReserveRobotNewNew.Context.tt">
+    <Content Include="Models\Reservation3.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ReserveRobotNewNew.Context.cs</LastGenOutput>
-      <DependentUpon>ReserveRobotNewNew.edmx</DependentUpon>
+      <DependentUpon>Reservation3.edmx</DependentUpon>
+      <LastGenOutput>Reservation3.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ReserveRobotNewNew.tt">
+    <Content Include="Models\Reservation3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ReserveRobotNewNew.edmx</DependentUpon>
-      <LastGenOutput>ReserveRobotNewNew.cs</LastGenOutput>
+      <DependentUpon>Reservation3.edmx</DependentUpon>
+      <LastGenOutput>Reservation3.cs</LastGenOutput>
     </Content>
     <Content Include="Photos\foodpics.jpg" />
     <Content Include="Photos\foodpics1.jpg" />
@@ -354,12 +350,12 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
-    <EntityDeploy Include="Models\ReserveRobotNewNew.edmx">
+    <EntityDeploy Include="Models\Reservation3.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ReserveRobotNewNew.Designer.cs</LastGenOutput>
+      <LastGenOutput>Reservation3.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ReserveRobotNewNew.edmx.diagram">
-      <DependentUpon>ReserveRobotNewNew.edmx</DependentUpon>
+    <Content Include="Models\Reservation3.edmx.diagram">
+      <DependentUpon>Reservation3.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -478,15 +474,7 @@
     <Content Include="Views\Administers\Create.cshtml" />
     <Content Include="Views\Administers\Edit.cshtml" />
     <Content Include="Views\Administers\Index.cshtml" />
-    <Content Include="Views\FavoriteLists\Create.cshtml" />
-    <Content Include="Views\FavoriteLists\Delete.cshtml" />
-    <Content Include="Views\FavoriteLists\Edit.cshtml" />
-    <Content Include="Views\FavoriteLists\Index.cshtml" />
-    <Content Include="Views\Reserves\Create.cshtml" />
-    <Content Include="Views\Reserves\Delete.cshtml" />
-    <Content Include="Views\Reserves\Details.cshtml" />
     <Content Include="Views\HomeMember\Edit.cshtml" />
-    <Content Include="Views\Reserves\Index.cshtml" />
     <Content Include="Views\Administrators\Create.cshtml" />
     <Content Include="Views\Administrators\Edit.cshtml" />
     <Content Include="Views\Administrators\Index.cshtml" />
@@ -497,7 +485,12 @@
     <Content Include="Views\HomeMember\Index.cshtml" />
     <Content Include="Views\HomeMember\ReservationList.cshtml" />
     <Content Include="Views\HomeMember\Create.cshtml" />
-    <Content Include="Views\Administers\Details.cshtml" />
+    <Content Include="Views\Reserves\Create.cshtml" />
+    <Content Include="Views\Reserves\Delete.cshtml" />
+    <Content Include="Views\Reserves\Details.cshtml" />
+    <Content Include="Views\Reserves\Edit.cshtml" />
+    <Content Include="Views\Reserves\Index.cshtml" />
+    <Content Include="Views\HomeMember\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LoginCheck\" />

@@ -14,7 +14,7 @@ namespace MyProject.Controllers
     public class HomeMemberController : Controller
     {
 
-        ReserveRobotNewNewEntities db = new ReserveRobotNewNewEntities();
+        ReservationEntities db = new ReservationEntities();
 
         // GET: HomeMember
 
@@ -89,7 +89,10 @@ namespace MyProject.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", reserves.MemberID);
+            Members MemberUser = (Members)Session["MemberUser"];
+            //ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", reserves.MemberID);
+            ViewBag.MemberID = MemberUser.MemberID;
+            ViewBag.Name = MemberUser.Name;
             ViewBag.ReservationID = new SelectList(db.Restaurants, "RestaurantID", "Name", reserves.ReservationID);
             return View(reserves);
         }
@@ -105,11 +108,48 @@ namespace MyProject.Controllers
             {
                 db.Entry(reserves).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ReservationList");
             }
+            Members MemberUser = (Members)Session["MemberUser"];
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", reserves.MemberID);
             ViewBag.ReservationID = new SelectList(db.Restaurants, "RestaurantID", "Name", reserves.ReservationID);
             return View(reserves);
+        }
+
+
+        // GET: Administers/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Reserves reserves = db.Reserves.Find(id);
+            if (reserves == null)
+            {
+                return HttpNotFound();
+            }
+            return View(reserves);
+        }
+
+        // POST: Administers/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Reserves reserves = db.Reserves.Find(id);
+            db.Reserves.Remove(reserves);
+            db.SaveChanges();
+            return RedirectToAction("ReservationList");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
     }

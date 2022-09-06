@@ -18,14 +18,12 @@ namespace MyProject.Models
         public int ReservationID { get; set; }
         public int MemberID { get; set; }
         public int RestaurantID { get; set; }
-        public System.DateTime Date { get; set; }
 
-        public System.TimeSpan Time { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm}", ApplyFormatInEditMode = true)]
+        public System.DateTime Date { get; set; }
         public string Adult { get; set; }
         public string Child { get; set; }
         public string Note { get; set; }
-        public Nullable<System.DateTime> BookDate { get; set; }
-        public Nullable<System.TimeSpan> BookTime { get; set; }
     
         public virtual Members Members { get; set; }
         public virtual Restaurants Restaurants { get; set; }

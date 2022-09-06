@@ -11,11 +11,11 @@ using PagedList;
 
 namespace MyProject.Controllers
 {
-    //[LoginCheck]  //把LoginCheck的Controller內寫的登入規則放在這個Controller裡，放在這裡所有Action都適用
+    [LoginCheck]  //把LoginCheck的Controller內寫的登入規則放在這個Controller裡，放在這裡所有Action都適用
 
     public class MembersController : Controller
     {
-        private ReserveRobotNewNewEntities db = new ReserveRobotNewNewEntities();
+        private ReservationEntities db = new ReservationEntities();
 
         // GET: Members
         public ActionResult Index(int page=1) //預設page在第1頁

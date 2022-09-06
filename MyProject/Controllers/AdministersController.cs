@@ -11,9 +11,10 @@ using PagedList;
 
 namespace MyProject.Controllers
 {
+    [LoginCheck]
     public class AdministersController : Controller
     {
-        private ReserveRobotNewNewEntities db = new ReserveRobotNewNewEntities();
+        private ReservationEntities db = new ReservationEntities();
 
         // GET: Administers
         public ActionResult Index(int page = 1)
@@ -48,7 +49,10 @@ namespace MyProject.Controllers
         // GET: Administers/Create
         public ActionResult Create()
         {
-            ViewBag.AdministratorID = new SelectList(db.Administrators, "AdministratorID", "Name");
+            Administrators AdmUser = (Administrators)Session["AdmUser"];
+
+            ViewBag.AdministratorID = AdmUser.AdministratorID;
+            ViewBag.Name = AdmUser.Name;
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name");
             return View();
         }
@@ -58,7 +62,7 @@ namespace MyProject.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AdministerID,AdministratorID,MemberID,Blocks,Reason")] Administers administers)
+        public ActionResult Create(Administers administers)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +71,8 @@ namespace MyProject.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AdministratorID = new SelectList(db.Administrators, "AdministratorID", "Name", administers.AdministratorID);
+            Administrators AdmUser = (Administrators)Session["AdmUser"];
+            ViewBag.AdministratorID = new SelectList(db.Administrators, "AdministratorID", "Name", AdmUser.AdministratorID);
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", administers.MemberID);
             return View(administers);
         }

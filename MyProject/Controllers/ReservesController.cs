@@ -1,5 +1,4 @@
-﻿using MyProject.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -7,24 +6,28 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-
+using MyProject.Models;
+using PagedList;
 
 namespace MyProject.Controllers
 {
+    [LoginCheck]
     public class ReservesController : Controller
     {
-        private ReserveRobotNewNewEntities db = new ReserveRobotNewNewEntities();
+        private ReservationEntities db = new ReservationEntities();
 
         // GET: Reserves
-        public ActionResult Index()
+        public ActionResult Index(int page = 1) //預設page在第1頁
         {
-            var reserves = db.Reserves.Include(r => r.Members).Include(r => r.Restaurants);
-            return View(reserves.ToList());
+            var reserves = db.Reserves.Include(r => r.Members).Include(r => r.Restaurants).ToList();
+
+            int pagesize = 15; //一頁要有幾筆資料
+
+            var pagedList = reserves.ToPagedList(page, pagesize);
+
+
+            return View(pagedList);
         }
-
-        
-        
-
 
         // GET: Reserves/Details/5
         public ActionResult Details(int? id)
@@ -54,13 +57,13 @@ namespace MyProject.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( Reserves reserves)
+        public ActionResult Create([Bind(Include = "ReservationID,MemberID,RestaurantID,Date,Adult,Child,Note")] Reserves reserves)
         {
             if (ModelState.IsValid)
             {
                 db.Reserves.Add(reserves);
                 db.SaveChanges();
-                return RedirectToAction("RestaurantList","HomeMember");
+                return RedirectToAction("Index");
             }
 
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", reserves.MemberID);
@@ -81,7 +84,7 @@ namespace MyProject.Controllers
                 return HttpNotFound();
             }
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", reserves.MemberID);
-            ViewBag.ReservationID = new SelectList(db.Restaurants, "RestaurantID", "Name", reserves.ReservationID);
+            ViewBag.RestaurantID = new SelectList(db.Restaurants, "RestaurantID", "Name", reserves.RestaurantID);
             return View(reserves);
         }
 
@@ -90,7 +93,7 @@ namespace MyProject.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ReservationID,MemberID,RestaurantID,Date,Time,Adult,Child,Note,BookDate,BookTime")] Reserves reserves)
+        public ActionResult Edit([Bind(Include = "ReservationID,MemberID,RestaurantID,Date,Adult,Child,Note")] Reserves reserves)
         {
             if (ModelState.IsValid)
             {
@@ -99,7 +102,7 @@ namespace MyProject.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", reserves.MemberID);
-            ViewBag.ReservationID = new SelectList(db.Restaurants, "RestaurantID", "Name", reserves.ReservationID);
+            ViewBag.RestaurantID = new SelectList(db.Restaurants, "RestaurantID", "Name", reserves.RestaurantID);
             return View(reserves);
         }
 
