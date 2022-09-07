@@ -49,11 +49,20 @@ namespace MyProject.Controllers
         // GET: Administers/Create
         public ActionResult Create()
         {
-            Administrators AdmUser = (Administrators)Session["AdmUser"];
+            Administrators AdmUser = (Administrators)Session["user"];
 
             ViewBag.AdministratorID = AdmUser.AdministratorID;
             ViewBag.Name = AdmUser.Name;
-            ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name");
+            var blockMembers=db.Administers.Where(a => a.Blocks == true).ToList();
+            var members=db.Members.ToList();
+
+             foreach (var blockUser in blockMembers) {
+                members.RemoveAll(x => x.MemberID == blockUser.MemberID);
+            }
+          
+        
+            
+            ViewBag.MemberID = new SelectList(members, "MemberID", "Name");
             return View();
         }
 
@@ -71,8 +80,8 @@ namespace MyProject.Controllers
                 return RedirectToAction("Index");
             }
 
-            Administrators AdmUser = (Administrators)Session["AdmUser"];
-            ViewBag.AdministratorID = new SelectList(db.Administrators, "AdministratorID", "Name", AdmUser.AdministratorID);
+            Administrators AdmUser = (Administrators)Session["user"];
+            ViewBag.AdministratorID = AdmUser.AdministratorID;
             ViewBag.MemberID = new SelectList(db.Members, "MemberID", "Name", administers.MemberID);
             return View(administers);
         }
