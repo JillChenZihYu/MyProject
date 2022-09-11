@@ -11,7 +11,9 @@ namespace MyProject.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Members
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,13 +22,38 @@ namespace MyProject.Models
             this.Administers = new HashSet<Administers>();
             this.Reserves = new HashSet<Reserves>();
         }
-    
+
+        [Key]
+        [DisplayName("會員編號")]
         public int MemberID { get; set; }
+
+        [DisplayName("會員姓名")]
+        [Required(ErrorMessage = "請填寫姓名")]
+        [StringLength(30, ErrorMessage = "姓名不得超過30字")]
         public string Name { get; set; }
+
+        [DisplayName("性別")]
         public bool Gender { get; set; }
+
+        [DisplayName("生日")]
+        [Required(ErrorMessage = "請填寫生日")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public System.DateTime DateOfBirth { get; set; }
+
+        [DisplayName("連絡電話")]
+        [Required(ErrorMessage = "請輸入連絡電話")]
+        [MaxLength(12, ErrorMessage = "不得超過12碼")]
         public string ContactNumber { get; set; }
+
+        [DisplayName("帳號")]
+        [Required(ErrorMessage = "請填寫Email做為您的帳號")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        [DisplayName("密碼")]
+        [Required(ErrorMessage = "請填寫密碼")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

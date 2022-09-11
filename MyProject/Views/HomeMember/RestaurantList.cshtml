@@ -10,8 +10,14 @@
         <p class="text-right">
             @Html.ActionLink("點我預訂", "Create", null, new { @class = "btn btn-secondary buttonColor" })
         </p>
+        <div>
+            輸入關鍵字查詢：<input id="txtRes" type="text" /><input id="Button1" type="button" value="查詢" onclick="getResData()" />
+        </div>
 
 <div class="row">
+    
+    
+    
     @foreach (var item in Model)
     {
 
@@ -39,3 +45,8 @@
         </div>
     }
     </div>
+
+<script>
+
+
+</script>

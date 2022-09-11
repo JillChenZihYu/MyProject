@@ -1,0 +1,48 @@
+﻿body {
+}
+
+.background {
+    background-color: #FFF3E4;
+}
+
+.navbar {
+    background-color: #4A503D !important;
+}
+
+
+.btn-success {
+    background-color: #4A503D !important;
+    border: #4A503D !important;
+}
+
+
+.btn-secondary {
+    background-color: #C3B091 !important;
+    border: #C3B091 !important;
+}
+
+
+/*.btn-info {
+    background-color: #BA7967 !important;
+    border: #BA7967 !important;
+}*/
+
+/*.btn-primary {
+    background-color: #BA7967 !important;
+    border: #BA7967 !important;
+}*/
+
+/*.btn-default {
+    background-color: #BA7967 !important;
+    border: #BA7967 !important;
+}*/
+
+.form-control {
+    background-color: #FFF3E4;
+}
+
+.alert-danger {
+    background-color: #F3ECB8;
+    border: #F3ECB8;
+}
+

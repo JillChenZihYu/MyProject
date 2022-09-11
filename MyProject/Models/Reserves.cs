@@ -12,17 +12,38 @@ namespace MyProject.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel;
 
     public partial class Reserves
     {
+        [Key]
+        [DisplayName("預約編號")]
         public int ReservationID { get; set; }
+
+        [DisplayName("會員編號")]
+        [Required]
         public int MemberID { get; set; }
+
+        [DisplayName("餐廳編號")]
+        [Required]
         public int RestaurantID { get; set; }
 
+        [DisplayName("用餐日期")]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "請選擇用餐日期及時間")]
         public System.DateTime Date { get; set; }
+
+        [DisplayName("成人人數")]
+        [Required(ErrorMessage = "請填寫用餐人數")]
+        [StringLength(50, ErrorMessage = "本欄位不得超過50字")]
         public string Adult { get; set; }
+
+        [DisplayName("孩童人數")]
+        [StringLength(50, ErrorMessage = "本欄位不得超過50字")]
         public string Child { get; set; }
+
+        [DisplayName("備註")]
+        [StringLength(255, ErrorMessage = "備註不得超過255字")]
         public string Note { get; set; }
     
         public virtual Members Members { get; set; }
