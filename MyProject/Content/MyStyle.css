@@ -26,3 +26,25 @@
 .enterEffect {
     white-space: pre-line;
 }
+
+.semiNavbar {
+    position: fixed;
+    right: 30px;
+    top: 60px;
+    z-index: 300;
+    font-size:25px;
+    padding:10px;
+}
+
+.ResBtn {
+    text-decoration: none;
+    color: #BE8C63 !important;
+}
+
+
+
+
+.ResBtn:hover {
+    text-decoration: none;
+     color: #732514 !important;
+}

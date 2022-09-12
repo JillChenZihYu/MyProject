@@ -6,46 +6,56 @@
 }
 
 
+<div class="container">
     <h2 class="mt-4">餐廳列表</h2>
-        <p class="text-right">
-            @Html.ActionLink("點我預訂", "Create", null, new { @class = "btn btn-secondary buttonColor" })
-        </p>
-        <div>
-            輸入關鍵字查詢：<input id="txtRes" type="text" /><input id="Button1" type="button" value="查詢" onclick="getResData()" />
-        </div>
+    <p class="semiNavbar">
+        @*@Html.ActionLink("點我預訂", "Create", null, new { @class = "btn btn-secondary buttonColor" })*@
+        <a href="@Url.Action("Create")" class="bi bi-calendar3 ResBtn"> 點我預訂</a>
+    </p>
 
-<div class="row">
-    
-    
-    
-    @foreach (var item in Model)
-    {
+    <div>
+        @using (Html.BeginForm())
+        {
+            <p>
+                餐廳查詢: <input type="text" name="SearchValue"  />
+                <input type="submit" value="查詢" />
+            </p>
+        }
 
-
-        <div class="card text-center col-4 restaurantCard">
-            <div class="card-body ">
-                <h3 class="card-title">
-                    <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
-                </h3>
-
-                <p class="card-text">
-                    <h6>@Html.DisplayFor(modelItem => item.Address)</h6>
-                    <h6>@Html.DisplayFor(modelItem => item.ContactNumber)</h6>
-                    <h6 class="enterEffect">@Html.DisplayFor(modelItem => item.OpeningHours)</h6>
-                    
-                </p>
-                
-            </div>
-
-
-
-
-
-
-        </div>
-    }
     </div>
 
+    <div class="row">
+
+
+
+        @foreach (var item in Model)
+        {
+
+
+            <div class="card text-center col-4 restaurantCard">
+                <div class="card-body ">
+                    <h3 class="card-title">
+                        <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+                    </h3>
+
+                    <p class="card-text">
+                        <h6>@Html.DisplayFor(modelItem => item.Address)</h6>
+                        <h6>@Html.DisplayFor(modelItem => item.ContactNumber)</h6>
+                        <h6 class="enterEffect">@Html.DisplayFor(modelItem => item.OpeningHours)</h6>
+
+                    </p>
+
+                </div>
+
+
+
+
+
+
+            </div>
+        }
+    </div>
+</div>
 <script>
 
 

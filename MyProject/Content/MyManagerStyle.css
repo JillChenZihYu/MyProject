@@ -2,47 +2,110 @@
 }
 
 .background {
-    background-color: #FFF3E4;
+    background-color: #FEFBF6;
 }
 
 .navbar {
-    background-color: #4A503D !important;
+    background-color: #967E76 !important;
 }
-
-
-.btn-success {
-    background-color: #4A503D !important;
-    border: #4A503D !important;
-}
-
-
-.btn-secondary {
-    background-color: #C3B091 !important;
-    border: #C3B091 !important;
-}
-
-
-/*.btn-info {
-    background-color: #BA7967 !important;
-    border: #BA7967 !important;
-}*/
-
-/*.btn-primary {
-    background-color: #BA7967 !important;
-    border: #BA7967 !important;
-}*/
-
-/*.btn-default {
-    background-color: #BA7967 !important;
-    border: #BA7967 !important;
-}*/
 
 .form-control {
-    background-color: #FFF3E4;
+    background-color: #FEFBF6;
 }
+
+/*Edit儲存*/
+.btn-success {
+    background-color: #CC9C75 !important;
+    border: #CC9C75 !important;
+}
+
+    .btn-success:hover {
+        background-color: #967E76 !important;
+        border: #967E76 !important;
+    }
+
+/*Edit返回*/
+.btn-secondary {
+    background-color: #B7C4CF !important;
+    border: #B7C4CF !important;
+}
+
+    .btn-secondary:hover {
+        background-color: #5F6F94 !important;
+        border: #5F6F94 !important;
+    }
+
+/*Index新增*/
+.btn-info {
+    background-color: #7D9D9C !important;
+    border: #7D9D9C !important;
+}
+
+    .btn-info:hover {
+        background-color: #576F72 !important;
+        border: #576F72 !important;
+    }
+
+/*Index編輯*/
+.btn-primary {
+    background-color: #A77979 !important;
+    border: #A77979 !important;
+}
+
+    .btn-primary:hover {
+        background-color: #704F4F !important;
+        border: #704F4F !important;
+    }
+
+/*Index刪除*/
+.btn-danger {
+    background-color: #C21010 !important;
+    border: #C21010 !important;
+}
+
+    .btn-danger:hover {
+        background-color: #820000 !important;
+        border: #820000 !important;
+    }
+
+
 
 .alert-danger {
-    background-color: #F3ECB8;
-    border: #F3ECB8;
+    background-color: #D7C0AE;
+    border: #D7C0AE;
+    color: #61481C;
 }
 
+
+
+.pagination a {
+    color: #61481C;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: #E9D5CA;
+    border:black;
+}
+
+
+
+/*.pagination-container {
+    background-color: #4C3A51 !important;
+}
+
+.active page-item {
+
+
+}
+
+.page-item {
+    
+}
+
+    .page-item:hover {*/
+        /*background-color: #4C3A51 !important;*/
+    /*}
+
+.PagedList-skipToNext{
+
+}*/
