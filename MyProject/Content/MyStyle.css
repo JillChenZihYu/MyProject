@@ -29,8 +29,8 @@
 
 .semiNavbar {
     position: fixed;
-    right: 30px;
-    top: 60px;
+    right: 50px;
+    bottom: 100px;
     z-index: 300;
     font-size:25px;
     padding:10px;
@@ -48,3 +48,26 @@
     text-decoration: none;
      color: #732514 !important;
 }
+
+.btn-primary {
+    text-decoration: none;
+    background-color: #BE8C63 !important;
+}
+
+    .btn-primary:hover {
+        text-decoration: none;
+        background-color: #967E76 !important;
+    }
+
+
+.btn-light {
+    background-color: #B7C4CF !important;
+    border: #B7C4CF !important;
+    color:white;
+}
+
+    .btn-light:hover {
+        background-color: #5F6F94 !important;
+        border: #5F6F94 !important;
+        color: white;
+    }

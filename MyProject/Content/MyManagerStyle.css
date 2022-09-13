@@ -83,29 +83,21 @@
     float: left;
     padding: 8px 16px;
     text-decoration: none;
-    background-color: #E9D5CA;
-    border:black;
+    background-color: #F5EDDC;
+   /* border: black;*/
+}
+
+    .pagination a:hover {
+        background-color: #E9DAC1;
+    }
+
+
+
+
+
+.page-item.active .page-link {
+    background-color: #820000 !important;
+
 }
 
 
-
-/*.pagination-container {
-    background-color: #4C3A51 !important;
-}
-
-.active page-item {
-
-
-}
-
-.page-item {
-    
-}
-
-    .page-item:hover {*/
-        /*background-color: #4C3A51 !important;*/
-    /*}
-
-.PagedList-skipToNext{
-
-}*/
