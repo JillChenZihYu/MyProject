@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MyProject.Models.Restaurants>
+
+@{
+    ViewBag.Title = "RestaurantList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="mt-4">餐廳列表</h2>
+
+
+    <div>
+        @using (Html.BeginForm())
+        {
+            <span class="row ResSearch">
+                <span class="ResSearchFont ml-3">餐廳查詢： </span>  <input type="text" name="SearchValue" class="form-control col-5 mr-1" />
+                <input type="submit" value="查詢" class="btn btn-primary" />
+            </span>
+        }
+
+    </div>
+    <br />
+    <div class="row">
+
+
+
+        @foreach (var item in Model)
+        {
+
+
+            <div class="card text-center col-4 restaurantCard">
+                <div class="card-body ">
+                    <h3 class="card-title">
+                        <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+                    </h3>
+
+                    <p class="card-text">
+                        <h6>@Html.DisplayFor(modelItem => item.Address)</h6>
+                        <h6>@Html.DisplayFor(modelItem => item.ContactNumber)</h6>
+                        <h6 class="enterEffect">@Html.DisplayFor(modelItem => item.OpeningHours)</h6>
+
+                    </p>
+
+                </div>
+
+
+
+
+
+
+            </div>
+        }
+    </div>
+</div>
+
+

@@ -67,8 +67,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-success buttonColor" /> |
-            @Html.ActionLink("返回列表", "ReservationList")
+            <input type="submit" value="確定刪除" class="btn btn-success buttonColor" /> 
+            @Html.ActionLink("返回列表", "ReservationList", null, new { @class = "btn btn-secondary " })
         </div>
     }
 </div>

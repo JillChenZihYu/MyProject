@@ -65,6 +65,19 @@ namespace MyProject.Controllers
         }
 
 
+        public ActionResult RestaurantList(string SearchValue)
+        {
+            var restaurants = db.Restaurants.ToList();
+            if (SearchValue != null)
+            {
+                restaurants = db.Restaurants.Where(x => x.Name.Contains(SearchValue)).ToList();
+            }
+
+
+
+            return View(restaurants);
+        }
+
 
 
 

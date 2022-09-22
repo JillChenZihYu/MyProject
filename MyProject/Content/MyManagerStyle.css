@@ -88,7 +88,8 @@
 }
 
     .pagination a:hover {
-        background-color: #E9DAC1;
+        background-color: #ECB390;
+        color: #61481C;
     }
 
 
@@ -96,8 +97,8 @@
 
 
 .page-item.active .page-link {
-    background-color: #820000 !important;
-
+    background-color: #ECCCB2 !important;
+    border: #ECCCB2 !important;
 }
 
 

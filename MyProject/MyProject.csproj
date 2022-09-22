@@ -486,12 +486,12 @@
     <Content Include="Views\HomeMember\Index.cshtml" />
     <Content Include="Views\HomeMember\ReservationList.cshtml" />
     <Content Include="Views\HomeMember\Create.cshtml" />
-    <Content Include="Views\Reserves\Create.cshtml" />
     <Content Include="Views\Reserves\Delete.cshtml" />
-    <Content Include="Views\Reserves\Details.cshtml" />
     <Content Include="Views\Reserves\Edit.cshtml" />
     <Content Include="Views\Reserves\Index.cshtml" />
     <Content Include="Views\HomeMember\Delete.cshtml" />
+    <Content Include="Views\Home\RestaurantList.cshtml" />
+    <Content Include="Views\Restaurants\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\LoginCheck\" />

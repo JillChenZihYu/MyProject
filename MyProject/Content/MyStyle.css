@@ -41,21 +41,31 @@
     color: #BE8C63 !important;
 }
 
+.ResSearch{
+    align-items:center;
+}
+
+.ResSearchFont{
+    font-size:18px;
+}
+
 
 
 
 .ResBtn:hover {
     text-decoration: none;
-     color: #732514 !important;
+    color: #732514 !important;
 }
 
 .btn-primary {
     text-decoration: none;
+    border: #BE8C63 !important;
     background-color: #BE8C63 !important;
 }
 
     .btn-primary:hover {
         text-decoration: none;
+        border: #967E76 !important;
         background-color: #967E76 !important;
     }
 

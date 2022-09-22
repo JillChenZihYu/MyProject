@@ -47,7 +47,7 @@ namespace MyProject.Controllers
                 }
 
                 Session["user"] = user;/*Session作為判斷是否為管理員的狀態，可全域使用，生命週期為瀏覽器關掉為止，user為管理員狀態*/
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Members");
             }
         }
 
@@ -55,7 +55,7 @@ namespace MyProject.Controllers
         public ActionResult Logout()
         {
             Session["user"] = null; /*null為非會員狀態*/
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Login","HomeManager");
         }
     }
 }

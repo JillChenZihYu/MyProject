@@ -16,14 +16,14 @@
     <div>
         @using (Html.BeginForm())
         {
-            <p>
-                餐廳查詢: <input type="text" name="SearchValue"  />
-                <input type="submit" value="查詢" />
-            </p>
+            <span class="row ResSearch">
+                <span class="ResSearchFont ml-3">餐廳查詢： </span>  <input type="text" name="SearchValue" class="form-control col-5 mr-1"/>
+                <input type="submit" value="查詢" class="btn btn-primary"/>
+            </span>
         }
 
     </div>
-
+    <br />
     <div class="row">
 
 
@@ -42,7 +42,7 @@
                         <h6>@Html.DisplayFor(modelItem => item.Address)</h6>
                         <h6>@Html.DisplayFor(modelItem => item.ContactNumber)</h6>
                         <h6 class="enterEffect">@Html.DisplayFor(modelItem => item.OpeningHours)</h6>
-
+                        
                     </p>
 
                 </div>
@@ -56,7 +56,3 @@
         }
     </div>
 </div>
-<script>
-
-
-</script>

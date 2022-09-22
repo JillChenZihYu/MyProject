@@ -11,13 +11,14 @@ using PagedList;
 
 namespace MyProject.Controllers
 {
-    [LoginCheck]  //把LoginCheck的Controller內寫的登入規則放在這個Controller裡，放在這裡所有Action都適用
+    
 
     public class MembersController : Controller
     {
         private ReservationEntities db = new ReservationEntities();
 
         // GET: Members
+        [LoginCheck]
         public ActionResult Index(int page=1) //預設page在第1頁
         {
             var members=db.Members.ToList();
@@ -32,6 +33,7 @@ namespace MyProject.Controllers
 
 
         // GET: Members/Details/5
+        [LoginCheck]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -82,6 +84,7 @@ namespace MyProject.Controllers
         }
 
         // GET: Members/Edit/5
+        [LoginCheck]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -99,6 +102,7 @@ namespace MyProject.Controllers
         // POST: Members/Edit/5
         // 若要避免過量張貼攻擊，請啟用您要繫結的特定屬性。
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
+        [LoginCheck]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MemberID,Name,Gender,DateOfBirth,ContactNumber,Email,Password")] Members members)
@@ -114,6 +118,7 @@ namespace MyProject.Controllers
         }
 
         // GET: Members/Delete/5
+        [LoginCheck]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -129,6 +134,7 @@ namespace MyProject.Controllers
         }
 
         // POST: Members/Delete/5
+        [LoginCheck]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

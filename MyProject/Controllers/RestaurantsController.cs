@@ -21,7 +21,7 @@ namespace MyProject.Controllers
         {
             var restaurants = db.Restaurants.ToList();
 
-            int pagesize = 15; //一頁要有幾筆資料
+            int pagesize = 10; //一頁要有幾筆資料
 
             var pagedList = restaurants.ToPagedList(page, pagesize);
 

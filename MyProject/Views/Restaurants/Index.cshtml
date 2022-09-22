@@ -50,13 +50,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
-            <td> 
-                @Html.Raw(item.OpeningHours.ToString().Replace("\n", "<br />"))
+            <td style="white-space:pre-line;display:flex"> 
+                @Html.DisplayFor(imodelItem => item.OpeningHours)
             </td>
             <td>
                 @Html.ActionLink("編輯", "Edit", new { id = item.RestaurantID }, new { @class = "btn-primary btn-sm mr-2" })
-                @*@Html.ActionLink("Details", "Details", new { id = item.RestaurantID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.RestaurantID })*@
+                @*@Html.ActionLink("Details", "Details", new { id = item.RestaurantID }) |*@
+                    @Html.ActionLink("刪除", "Delete", new { id = item.RestaurantID }, new { @class = "btn-danger btn-sm mr-2" })
             </td>
         </tr>
     }
